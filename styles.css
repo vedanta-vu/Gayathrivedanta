@@ -53,3 +53,14 @@ button {
   border: none;
   cursor: pointer;
 }
+.btn-primary {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #2f4f4f;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+Added styles for call-to-action button
