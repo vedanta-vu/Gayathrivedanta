@@ -58,6 +58,12 @@ body {
   text-decoration: none;
   color: inherit;
 }
+.logo img {
+  height: 100px;  /* increase logo size */
+  width: auto;    /* keep proportions */
+  display: block; /* removes extra spacing under image */
+}
+
 
 /* Nav */
 .nav {
