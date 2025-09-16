@@ -7,17 +7,44 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Gayathri Developers</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Projects</a>
-        <a href="#">Gallery</a>
-        <a href="#">Contact</a>
-      </nav>
+  <!-- Double Header -->
+  <header>
+    <!-- Top strip -->
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <div class="topbar-left">
+          <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
+          <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main navbar -->
+    <div class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Gayathri Developers</a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+
+          <div class="dropdown">
+            <a href="projects.html">Projects ▾</a>
+            <div class="dropdown-menu">
+              <a href="projects.html#current">Current Projects</a>
+              <a href="projects.html#upcoming">Upcoming Projects</a>
+            </div>
+          </div>
+
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="btn-outline">Contact</a>
+        </nav>
+
+        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
+      </div>
     </div>
   </header>
+  <!-- End Header -->
 
   <section class="hero">
     <div class="hero-content">
@@ -79,5 +106,14 @@
       color:#006400 !important;
   }
   </style>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('mobileToggle');
+    const nav = document.querySelector('.nav');
+    if (toggle) {
+      toggle.addEventListener('click', () => nav.classList.toggle('open'));
+    }
+  </script>
 </body>
 </html>
