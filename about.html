@@ -3,85 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us - Gayathri Developers</title>
+  <title>About - Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Double Header -->
-  <header>
-    <!-- Top strip -->
-    <div class="topbar">
-      <div class="container topbar-inner">
-        <div class="topbar-left">
-          <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
-          <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
-        </div>
+  <!-- Top strip -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
+        <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
+        <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
     </div>
+  </div>
 
-    <!-- Main navbar -->
-    <div class="site-header">
-      <div class="container header-inner">
-        <a class="logo" href="index.html">Gayathri Developers</a>
+  <!-- Header -->
+  <div class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.png" alt="Gayathri Developers Logo">
+      </a>
 
-        <nav class="nav" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-
-          <div class="dropdown">
-            <a href="projects.html">Projects ▾</a>
-            <div class="dropdown-menu">
-              <a href="projects.html#current">Current Projects</a>
-              <a href="projects.html#upcoming">Upcoming Projects</a>
-            </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="btn-outline">About</a>
+        <div class="dropdown">
+          <a href="projects.html">Projects ▾</a>
+          <div class="dropdown-menu">
+            <a href="projects.html#current">Current Projects</a>
+            <a href="projects.html#upcoming">Upcoming Projects</a>
           </div>
+        </div>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-          <a href="gallery.html">Gallery</a>
-          <a href="contact.html" class="btn-outline">Contact</a>
-        </nav>
-
-        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
-      </div>
+      <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
     </div>
-  </header>
-  <!-- End Header -->
+  </div>
 
-  <main class="container" style="padding:40px 20px;">
+  <!-- Main Content -->
+  <main class="container" style="padding:40px 20px; max-width:900px;">
     <h1>About Gayathri Developers</h1>
     <p>
-      At <strong>Gayathri Developers</strong>, we are committed to creating 
-      residential layouts that combine legal clarity, thoughtful planning, 
-      and affordability. Our flagship project <em>Vedanta</em> in Nunna reflects 
+      At <strong>Gayathri Developers</strong>, we are committed to creating
+      residential layouts that combine legal clarity, thoughtful planning,
+      and affordability. Our flagship project <em>Vedanta</em> in Nunna reflects
       our values of transparency and long-term community growth.
     </p>
-
-    <h2>Our Vision</h2>
-    <p>
-      To provide families and investors with clear-titled plots in 
-      strategically located, vastu-compliant layouts that ensure 
-      comfort and value for generations.
-    </p>
-
-    <h2>Why Choose Us</h2>
-    <ul>
-      <li>✅ Legally clear and APCRDA-approved projects</li>
-      <li>✅ Planned layouts with infrastructure in mind</li>
-      <li>✅ Transparent documentation and hassle-free registration</li>
-      <li>✅ Affordable pricing with flexible options</li>
-    </ul>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Gayathri Developers | All Rights Reserved</p>
   </footer>
 
+  <!-- Mobile menu toggle script -->
   <script>
-    // Mobile nav toggle
-    const toggle = document.getElementById('mobileToggle');
-    const nav = document.querySelector('.nav');
-    if (toggle) {
-      toggle.addEventListener('click', () => nav.classList.toggle('open'));
-    }
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const nav = document.querySelector('.nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => nav.classList.toggle('open'));
+      }
+    })();
   </script>
 </body>
 </html>
