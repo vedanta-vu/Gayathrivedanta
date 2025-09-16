@@ -6,6 +6,16 @@
   <title>Vedanta - Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
+  <script>
+let counter = 1;
+setInterval(() => {
+  document.getElementById('img-' + counter).checked = true;
+  counter++;
+  if(counter > 4){ counter = 1; }
+}, 5000); // 5 seconds per slide
+</script>
+
 <body>
   <!-- Double Header -->
   <header>
@@ -47,6 +57,39 @@
     </div>
   </header>
   <!-- End Header -->
+
+  <!-- Image Slider Section -->
+<section class="slider">
+  <div class="slides">
+    <!-- Radio buttons for manual control -->
+    <input type="radio" name="radio-btn" id="img-1" checked>
+    <input type="radio" name="radio-btn" id="img-2">
+    <input type="radio" name="radio-btn" id="img-3">
+    <input type="radio" name="radio-btn" id="img-4">
+
+    <!-- Slides -->
+    <div class="slide first">
+      <img src="assets/slide1.jpg" alt="Vedanta Image 1">
+    </div>
+    <div class="slide">
+      <img src="assets/slide2.jpg" alt="Vedanta Image 2">
+    </div>
+    <div class="slide">
+      <img src="assets/slide3.jpg" alt="Vedanta Image 3">
+    </div>
+    <div class="slide">
+      <img src="assets/slide4.jpg" alt="Vedanta Image 4">
+    </div>
+  </div>
+
+  <!-- Navigation manual -->
+  <div class="navigation-manual">
+    <label for="img-1" class="manual-btn"></label>
+    <label for="img-2" class="manual-btn"></label>
+    <label for="img-3" class="manual-btn"></label>
+    <label for="img-4" class="manual-btn"></label>
+  </div>
+</section>
 
   <section class="hero">
     <div class="hero-content">
