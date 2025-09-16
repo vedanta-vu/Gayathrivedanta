@@ -7,14 +7,18 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
+    body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f4f4f4; color:#333; }
+    .topbar { background:#071241; color:#fff; font-size:14px; }
+    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:6px 0; }
+    .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
+
+    .site-header { background:#fff; border-bottom:1px solid #eee; }
+    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
+    .logo img { height:60px; width:auto; display:block; }
+
     /* Gallery filter row styles */
-    .gallery-filters {
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      margin: 28px 0;
-      flex-wrap:wrap;
-    }
+    .gallery-wrap { max-width:1200px; margin:40px auto; padding:0 20px; }
+    .gallery-filters { display:flex; justify-content:center; gap:12px; margin-bottom:28px; flex-wrap:wrap; }
     .filter-btn {
       padding: 8px 18px;
       border-radius: 20px;
@@ -36,37 +40,33 @@
     /* Masonry layout */
     .masonry {
       column-count: 3;
-      column-gap: 16px;
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
+      column-gap: 18px;
     }
     .masonry-item {
       break-inside: avoid;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      background: #fff;
+      box-shadow: 0 6px 18px rgba(10,15,25,0.04);
+      background:#fff;
     }
     .masonry-item img {
-      width: 100%;
-      height: auto;
-      display: block;
+      width:100%;
+      height:auto;
+      display:block;
+      transition: transform .35s ease;
     }
-    @media(max-width: 900px){
-      .masonry { column-count: 2; }
-    }
-    @media(max-width: 600px){
-      .masonry { column-count: 1; }
-    }
+    .masonry-item:hover img { transform: scale(1.03); }
+
+    @media(max-width:1100px){ .masonry { column-count: 2; } }
+    @media(max-width:680px){ .masonry { column-count: 1; } .gallery-filters { gap:8px; } }
   </style>
 </head>
 <body>
   <!-- Top strip -->
   <div class="topbar">
-    <div class="container topbar-inner">
-      <div class="topbar-left">
+    <div class="topbar-inner">
+      <div style="margin-left:auto;">
         <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
         <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
@@ -77,8 +77,9 @@
   <div class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">
-        <img src="assets/logo.png" alt="Gayathri Developers Logo" style="height:60px; width:auto;">
+        <img src="assets/logo.png" alt="Gayathri Developers Logo">
       </a>
+
       <nav class="nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -92,45 +93,37 @@
         <a href="gallery.html" class="btn-outline">Gallery</a>
         <a href="contact.html">Contact</a>
       </nav>
+
       <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
     </div>
   </div>
 
-  <!-- Main content -->
-  <main>
-    <section style="max-width:1200px; margin:auto; padding:40px 20px;">
-      <h1 style="text-align:center;">Gallery</h1>
+  <!-- Gallery main -->
+  <main class="gallery-wrap">
+    <h1 style="text-align:center; margin-bottom:8px;">Gallery</h1>
+    <p style="text-align:center; color:#666; margin-bottom:18px;">Project photos and events for Vedanta and Kohinoor.</p>
 
-      <!-- Filter buttons -->
-      <div class="gallery-filters" role="toolbar" aria-label="Gallery filters">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="vedanta">Vedanta</button>
-        <button class="filter-btn" data-filter="kohinoor">Kohinoor</button>
-      </div>
+    <!-- Filter buttons -->
+    <div class="gallery-filters" role="toolbar" aria-label="Gallery filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="vedanta">Vedanta</button>
+      <button class="filter-btn" data-filter="kohinoor">Kohinoor</button>
+    </div>
 
-      <!-- Masonry grid -->
-      <div id="masonry" class="masonry">
-        <!-- Vedanta images -->
-        <div class="masonry-item" data-category="vedanta">
-          <img src="assets/gallery/vedanta1.jpg" alt="Vedanta Image 1" loading="lazy">
-        </div>
-        <div class="masonry-item" data-category="vedanta">
-          <img src="assets/gallery/vedanta2.jpg" alt="Vedanta Image 2" loading="lazy">
-        </div>
-
-        <!-- Kohinoor images -->
-        <div class="masonry-item" data-category="kohinoor">
-          <img src="assets/gallery/kohinoor1.jpg" alt="Kohinoor Image 1" loading="lazy">
-        </div>
-        <div class="masonry-item" data-category="kohinoor">
-          <img src="assets/gallery/kohinoor2.jpg" alt="Kohinoor Image 2" loading="lazy">
-        </div>
-      </div>
-    </section>
+    <!-- Masonry grid -->
+    <div id="masonry" class="masonry" aria-live="polite">
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image1.jpg" alt="Vedanta image 1" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image2.jpg" alt="Vedanta image 2" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image3.jpg" alt="Vedanta image 3" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image4.jpg" alt="Vedanta image 4" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image5.jpg" alt="Vedanta image 5" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image6.jpg" alt="Vedanta image 6" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image7.jpg" alt="Vedanta image 7" loading="lazy"></div>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Gayathri Developers | All Rights Reserved</p>
+  <footer style="text-align:center; padding:18px 0; background:#fff;">
+    <p style="margin:0; color:#666;">&copy; 2025 Gayathri Developers | All Rights Reserved</p>
   </footer>
 
   <script>
