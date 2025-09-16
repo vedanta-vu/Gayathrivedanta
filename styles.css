@@ -1,3 +1,4 @@
+/* ---------- Global / Body ---------- */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -135,21 +136,44 @@ body {
   color: #fff;
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (full-width image in place of light grey area) ---------- */
+/* NOTE: change the path below to match where you upload the image */
 .hero {
-  background: url('images/vedanta-layout.jpg') no-repeat center center/cover;
-  height: 400px;
+  position: relative;
+  background: url('assets/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+  /* make hero cover a nice portion of the viewport (adjust as needed) */
+  min-height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 60px 20px;
   color: white;
   text-align: center;
 }
-.hero-content {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 30px;
-  border-radius: 10px;
+
+/* subtle overlay across the entire hero so text remains readable */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35); /* tweak opacity to taste (0.2 - 0.6) */
+  z-index: 1;
 }
+
+/* content box sits above the overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.48); /* slightly darker box for contrast */
+  padding: 36px;
+  border-radius: 10px;
+  max-width: 720px;      /* controls how wide the box grows */
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* CTA button */
 .btn-primary {
   background-color: #e67e22;
   color: white;
@@ -194,6 +218,13 @@ footer {
   padding: 20px 10px;
 }
 
+/* ---------- Hover flip for buttons/links used earlier ---------- */
+a[href$=".pdf"]:hover,
+a[href*="wa.me"]:hover {
+  background:#FFD700 !important;
+  color:#006400 !important;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .nav {
@@ -224,5 +255,14 @@ footer {
   }
   .dropdown-menu a {
     padding-left: 6px;
+  }
+
+  /* smaller hero on mobile to save vertical space */
+  .hero {
+    min-height: 45vh;
+    padding: 30px 16px;
+  }
+  .hero-content {
+    padding: 20px;
   }
 }
