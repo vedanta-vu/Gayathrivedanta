@@ -9,15 +9,16 @@
   <style>
     body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f4f4f4; color:#333; }
     .topbar { background:#071241; color:#fff; font-size:14px; }
-    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:6px 0; }
+    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
     .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
 
     .site-header { background:#fff; border-bottom:1px solid #eee; }
-    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
+    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
     .logo img { height:60px; width:auto; display:block; }
 
-    /* Gallery filter row styles */
     .gallery-wrap { max-width:1200px; margin:40px auto; padding:0 20px; }
+    h1 { text-align:center; margin-bottom:8px; font-size:32px; }
+
     .gallery-filters { display:flex; justify-content:center; gap:12px; margin-bottom:28px; flex-wrap:wrap; }
     .filter-btn {
       padding: 8px 18px;
@@ -37,11 +38,7 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     }
 
-    /* Masonry layout */
-    .masonry {
-      column-count: 3;
-      column-gap: 18px;
-    }
+    .masonry { column-count: 3; column-gap: 18px; }
     .masonry-item {
       break-inside: avoid;
       margin-bottom: 18px;
@@ -60,6 +57,8 @@
 
     @media(max-width:1100px){ .masonry { column-count: 2; } }
     @media(max-width:680px){ .masonry { column-count: 1; } .gallery-filters { gap:8px; } }
+
+    .empty-note { text-align:center; color:#777; margin-top:18px; }
   </style>
 </head>
 <body>
@@ -87,7 +86,7 @@
           <a href="projects.html">Projects ▾</a>
           <div class="dropdown-menu">
             <a href="projects.html#vedanta">Vedanta</a>
-            <a href="projects.html#kohinoor">Kohinoor</a>
+            <a href="projects.html#veda">Veda</a>
           </div>
         </div>
         <a href="gallery.html" class="btn-outline">Gallery</a>
@@ -99,27 +98,33 @@
   </div>
 
   <!-- Gallery main -->
-  <main class="gallery-wrap">
-    <h1 style="text-align:center; margin-bottom:8px;">Gallery</h1>
-    <p style="text-align:center; color:#666; margin-bottom:18px;">Project photos and events for Vedanta and Kohinoor.</p>
+  <main class="gallery-wrap" role="main">
+    <h1>Gallery</h1>
+    <p style="text-align:center; color:#666; margin-bottom:18px;">Project photos for Vedanta and Veda.</p>
 
     <!-- Filter buttons -->
     <div class="gallery-filters" role="toolbar" aria-label="Gallery filters">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="vedanta">Vedanta</button>
-      <button class="filter-btn" data-filter="kohinoor">Kohinoor</button>
+      <button class="filter-btn" data-filter="veda">Veda</button>
     </div>
 
     <!-- Masonry grid -->
     <div id="masonry" class="masonry" aria-live="polite">
-      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image1.jpg" alt="Vedanta image 1" loading="lazy"></div>
-      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image2.jpg" alt="Vedanta image 2" loading="lazy"></div>
-      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image3.jpg" alt="Vedanta image 3" loading="lazy"></div>
-      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image4.jpg" alt="Vedanta image 4" loading="lazy"></div>
-      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image5.jpg" alt="Vedanta image 5" loading="lazy"></div>
-      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image6.jpg" alt="Vedanta image 6" loading="lazy"></div>
-      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/image7.jpg" alt="Vedanta image 7" loading="lazy"></div>
+      <!-- Vedanta images -->
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/vedanta1.jpg" alt="Vedanta image 1" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/vedanta2.jpg" alt="Vedanta image 2" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/vedanta3.jpg" alt="Vedanta image 3" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/vedanta4.jpg" alt="Vedanta image 4" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/vedanta5.jpg" alt="Vedanta image 5" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/vedanta6.jpg" alt="Vedanta image 6" loading="lazy"></div>
+      <div class="masonry-item" data-category="vedanta"><img src="assets/gallery/vedanta7.jpg" alt="Vedanta image 7" loading="lazy"></div>
+
+      <!-- Veda images -->
+      <div class="masonry-item" data-category="veda"><img src="assets/gallery/veda1.jpg" alt="Veda image 1" loading="lazy"></div>
     </div>
+
+    <div id="emptyNote" class="empty-note" style="display:none;">No images in this category yet.</div>
   </main>
 
   <footer style="text-align:center; padding:18px 0; background:#fff;">
@@ -127,7 +132,6 @@
   </footer>
 
   <script>
-    // Mobile nav toggle
     (function(){
       const toggle = document.getElementById('mobileToggle');
       const nav = document.querySelector('.nav');
@@ -136,10 +140,10 @@
       }
     })();
 
-    // Filter logic
     (function(){
       const buttons = document.querySelectorAll('.gallery-filters .filter-btn');
-      const items = document.querySelectorAll('.masonry-item');
+      const items = Array.from(document.querySelectorAll('.masonry-item'));
+      const emptyNote = document.getElementById('emptyNote');
 
       function setActive(btn){
         buttons.forEach(b => b.classList.remove('active'));
@@ -147,14 +151,17 @@
       }
 
       function filter(cat){
+        let visible = 0;
         items.forEach(it => {
           const cats = (it.dataset.category || '').split(',').map(s => s.trim());
           if(cat === 'all' || cats.includes(cat)) {
             it.style.display = '';
+            visible++;
           } else {
             it.style.display = 'none';
           }
         });
+        emptyNote.style.display = (visible === 0 && cat !== 'all') ? 'block' : 'none';
       }
 
       buttons.forEach(btn => {
@@ -162,8 +169,13 @@
           const cat = btn.dataset.filter;
           setActive(btn);
           filter(cat);
+          if(window.innerWidth < 760) {
+            document.querySelector('.gallery-wrap').scrollIntoView({behavior:'smooth', block:'start'});
+          }
         });
       });
+
+      filter('all');
     })();
   </script>
 </body>
