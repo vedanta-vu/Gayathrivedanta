@@ -6,23 +6,17 @@
   <title>Contact - Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* Small inline helpers to ensure contact page blocks look correct */
     .page-inner {
-      max-width: 1100px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 40px 20px;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 20px;
-      align-items: start;
     }
     .card {
       background: #fff;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 6px 18px rgba(10,15,25,0.06);
+      margin-bottom: 20px;
     }
     .whatsapp-btn {
       display:inline-block;
@@ -34,20 +28,17 @@
       border-radius:8px;
       font-weight:bold;
       font-size:16px;
+      margin-bottom: 20px;
     }
     .contact-details { font-size:1.04em; line-height:1.6; }
     .contact-details a { color:#071241; text-decoration:none; font-weight:600; }
-    .map-box { width:100%; height:240px; border-radius:8px; overflow:hidden; }
+    .map-box { width:100%; height:320px; border-radius:8px; overflow:hidden; margin-top:15px; }
     .btn-row { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
     .btn-outline { display:inline-block; padding:8px 12px; border-radius:6px; border:1px solid #071241; text-decoration:none; color:#071241; font-weight:600; background:transparent; }
-    @media (max-width:900px) {
-      .contact-grid { grid-template-columns: 1fr; }
-      .map-box { height:220px; }
-    }
   </style>
 </head>
 <body>
-  <!-- Top header (same structure as your site) -->
+  <!-- Header (same as other pages) -->
   <header>
     <div class="topbar">
       <div class="container topbar-inner">
@@ -62,89 +53,4 @@
       <div class="container header-inner">
         <a class="logo" href="index.html">Gayathri Developers</a>
 
-        <nav class="nav" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <div class="dropdown">
-            <a href="projects.html">Projects ▾</a>
-            <div class="dropdown-menu">
-              <a href="projects.html#current">Current Projects</a>
-              <a href="projects.html#upcoming">Upcoming Projects</a>
-            </div>
-          </div>
-          <a href="gallery.html">Gallery</a>
-          <a href="contact.html" class="btn-outline">Contact</a>
-        </nav>
-
-        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main content -->
-  <main class="page-inner">
-    <h1 style="margin:0 0 6px 0; font-size:2.1rem;">Contact Us</h1>
-    <p class="muted" style="margin:0 0 20px 0; color:#666;">For bookings, site visits or enquiries — contact via WhatsApp, phone or email.</p>
-
-    <div class="contact-grid" aria-live="polite">
-      <!-- Left column: primary contact card -->
-      <div class="card">
-        <div style="text-align:center; margin-bottom:18px;">
-          <a class="whatsapp-btn" href="https://wa.me/917995019237?text=Hello%20I%20am%20interested%20in%20Gayathri%20Vedanta%20plots" target="_blank" rel="noopener">
-            💬 Chat on WhatsApp
-          </a>
-        </div>
-
-        <div class="contact-details">
-          <p><strong>Phone:</strong> <a href="tel:+917995019237">+91 79950 19237</a></p>
-          <p><strong>Email:</strong> <a href="mailto:vedanta.vu@gmail.com">vedanta.vu@gmail.com</a></p>
-
-          <hr style="border:none; border-top:1px solid #eef0f2; margin:14px 0;">
-
-          <p><strong>Office Address</strong></p>
-          <address style="font-style:normal; margin:6px 0; line-height:1.5;">
-            GAYATHRI DEVELOPERS<br>
-            D.NO: 26-23-21, Veda Heights,<br>
-            Second Floor, Gnanolive Street,<br>
-            Near Satyanarayana Swamy Temple,<br>
-            Gandhi Nagar, Vijayawada,<br>
-            Andhra Pradesh – 520003
-          </address>
-
-          <p style="margin-top:12px; font-size:0.95em; color:#666;">Visiting hours: Mon–Sat, 10:00 AM – 6:00 PM. Please call or message on WhatsApp to schedule an appointment.</p>
-        </div>
-      </div>
-
-      <!-- Right column: small map + actions -->
-      <aside class="card">
-        <h3 style="margin-top:0; margin-bottom:8px;">Office Location</h3>
-        <div class="map-box" aria-hidden="false">
-          <iframe 
-            src="https://www.google.com/maps?q=Veda+Heights%2C+Gandhi+Nagar%2C+Vijayawada&output=embed" 
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-
-        <div class="btn-row" style="margin-top:12px;">
-          <a class="btn-outline" href="https://www.google.com/maps?q=Veda+Heights%2C+Gandhi+Nagar%2C+Vijayawada" target="_blank" rel="noopener">Open in Maps</a>
-          <a class="btn-outline" href="tel:+917995019237">Call</a>
-        </div>
-      </aside>
-    </div>
-  </main>
-
-  <footer>
-    <p style="text-align:center; padding:18px 0; margin:0;">&copy; 2025 Gayathri Developers | All Rights Reserved</p>
-  </footer>
-
-  <script>
-    // Mobile nav toggle
-    (function(){
-      const toggle = document.getElementById('mobileToggle');
-      const nav = document.querySelector('.nav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', () => nav.classList.toggle('open'));
-      }
-    })();
-  </script>
-</body>
-</html>
+        <nav class="nav" aria-label="Main navigation"
