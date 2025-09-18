@@ -11,6 +11,7 @@ body {
   color: #fff;
   font-size: 14px;
 }
+
 .topbar-inner {
   width: 90%;
   max-width: 1100px;
@@ -22,17 +23,25 @@ body {
   gap: 18px;                   /* spacing between email and WhatsApp */
 }
 
-}
 .topbar a {
-  color: #fff;
+  color: #fff !important;      /* always white */
   text-decoration: none;
   margin-left: 16px;
   font-weight: 600;
 }
-.topbar a:hover {
-  text-decoration: underline;
-  opacity: 0.9;
+
+/* Always white for visited & active */
+.topbar a:visited,
+.topbar a:active {
+  color: #fff !important;
 }
+
+/* Gold hover effect */
+.topbar a:hover {
+  color: #FFD700 !important;   /* gold */
+  text-decoration: none;       /* cleaner than underline */
+}
+
 
 /* ---------- Main header ---------- */
 .site-header {
