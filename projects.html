@@ -4,14 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects - Gayathri Developers</title>
+  <!-- make sure you already updated styles.css to v2 -->
   <link rel="stylesheet" href="styles.css?v=2" />
+  <style>
+    /* Page-local tweaks: make main nav hover gold to match topbar */
+    .nav a:hover,
+    .nav a:focus {
+      color: #FFD700 !important;
+      background: transparent !important;
+    }
+
+    /* Project card visuals (page-local for predictable look) */
+    .projects-wrapper {
+      padding: 48px 20px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .project-card {
+      background:#fff;
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(10,15,25,0.06);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .project-card img {
+      width:120px;
+      height:84px;
+      object-fit:cover;
+      border-radius:8px;
+      flex-shrink:0;
+    }
+    .project-card h3 { margin:0 0 6px 0; font-size:18px; }
+    .project-card p { margin:0; color:#6b7280; }
+
+    .aside-card {
+      background:#fff;
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(10,15,25,0.06);
+    }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { flex-direction:row; }
+    }
+  </style>
 </head>
 <body>
   <!-- Double Header -->
   <header>
     <!-- Top strip -->
     <div class="topbar">
-      <div class="container topbar-inner">
+      <div class="topbar-inner">
         <div class="topbar-left">
           <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
           <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
@@ -22,6 +79,7 @@
     <!-- Main navbar -->
     <div class="site-header">
       <div class="container header-inner">
+        <!-- Text Logo -->
         <a class="logo" href="index.html">Gayathri Developers</a>
 
         <nav class="nav" aria-label="Main navigation">
@@ -46,46 +104,99 @@
   </header>
   <!-- End Header -->
 
-  <main style="padding:40px 20px;">
-    <section id="current" class="container" style="margin-bottom:40px;">
-      <h1>Current Projects</h1>
-      <p>Explore our ongoing residential layouts, available for booking and immediate registration.</p>
+  <main class="projects-wrapper container" style="max-width:1200px;">
+    <div class="projects-grid">
+      <div>
+        <section id="current">
+          <h1 style="margin-top:0;">Current Projects</h1>
+          <p style="color:#6b7280; max-width:700px;">Explore our ongoing residential layouts, available for booking and immediate registration.</p>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:20px;">
-        <!-- Example project card -->
-        <article style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
-          <h3>Vedanta, Nunna</h3>
-          <p>APCRDA & RERA approved premium plots near Vijayawada.</p>
-          <a href="assets/eBrochure.pdf" target="_blank" class="btn-outline">📄 Brochure</a>
-        </article>
+          <div class="project-list" style="margin-top:20px;">
+            <!-- Project card 1 -->
+            <article class="project-card">
+              <img src="vedanta-layout.jpg" alt="Vedanta, Nunna">
+              <div>
+                <h3>Vedanta, Nunna</h3>
+                <p>APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
+                <div style="margin-top:10px;">
+                  <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
+                  <a href="contact.html" class="btn-primary" style="padding:8px 12px;">Book Site Visit</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project card 2 (example) -->
+            <article class="project-card">
+              <img src="vedanta-layout.jpg" alt="Sample Plot">
+              <div>
+                <h3>Vedanta - Plot Series B</h3>
+                <p>Corner plots, well-oriented, close to internal park. Ideal for family homes and investments.</p>
+                <div style="margin-top:10px;">
+                  <a href="contact.html" class="btn-outline" style="margin-right:10px;">More Info</a>
+                  <a href="https://wa.me/917995019237" target="_blank" class="btn-primary" style="padding:8px 12px;">WhatsApp</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="upcoming" style="margin-top:48px;">
+          <h1>Upcoming Projects</h1>
+          <p style="color:#6b7280; max-width:700px;">Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.</p>
+
+          <div class="project-list" style="margin-top:20px;">
+            <article class="project-card">
+              <img src="vedanta-layout.jpg" alt="Coming Soon">
+              <div>
+                <h3>Coming Soon</h3>
+                <p>Details will be announced shortly. Register interest to get priority updates and pre-launch pricing.</p>
+                <div style="margin-top:10px;">
+                  <a href="contact.html" class="btn-outline" style="margin-right:10px;">Register Interest</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <section id="upcoming" class="container">
-      <h1>Upcoming Projects</h1>
-      <p>Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.</p>
+      <!-- Right aside -->
+      <aside class="aside-card">
+        <h3 style="margin-top:0;">Quick Info</h3>
+        <p style="color:#6b7280;">Need help choosing a plot? Call or WhatsApp us and we'll arrange a site visit.</p>
+        <p style="margin-top:12px;"><strong>📞 +91 79950 19237</strong></p>
+        <p style="margin:6px 0;"><strong>📍 Nunna, Vijayawada</strong></p>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:20px;">
-        <!-- Example placeholder card -->
-        <article style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.08); text-align:center;">
-          <h3>Coming Soon</h3>
-          <p>Details will be announced shortly.</p>
-        </article>
-      </div>
-    </section>
+        <div style="margin-top:12px;">
+          <a href="assets/eBrochure.pdf" target="_blank" class="btn-outline">Download Brochure</a>
+        </div>
+
+        <hr style="margin:18px 0; border:none; border-top:1px solid #f0f0f0;">
+
+        <h4 style="margin-bottom:6px;">Why Vedanta?</h4>
+        <ul style="margin:0; padding-left:18px; color:#6b7280;">
+          <li>Clear title &amp; approvals</li>
+          <li>Planned roads & drainage</li>
+          <li>Flexible payment plans</li>
+        </ul>
+      </aside>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Gayathri Developers | All Rights Reserved</p>
+  <footer style="margin-top:40px;">
+    <div style="background:#111; color:#fff; padding:18px 0; text-align:center;">
+      <small>© 2025 Gayathri Developers | All Rights Reserved</small>
+    </div>
   </footer>
 
   <script>
-    // Mobile nav toggle
-    const toggle = document.getElementById('mobileToggle');
-    const nav = document.querySelector('.nav');
-    if (toggle) {
-      toggle.addEventListener('click', () => nav.classList.toggle('open'));
-    }
+    // Mobile nav toggle (shared)
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const nav = document.querySelector('.nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => nav.classList.toggle('open'));
+      }
+    })();
   </script>
 </body>
 </html>
