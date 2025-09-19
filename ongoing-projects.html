@@ -83,14 +83,17 @@
 
           <!-- Vedanta Nunna Card (background) -->
           <article class="project-card-bg" style="background: url('assets/vedanta-card-bg.png') no-repeat center center/cover;">
-<div class="project-card" style="background:#777; color:#fff; padding:30px; border-radius:12px;">
-  <h3>Veda Infra – Phase 2</h3>
-  <p>Premium residential layout coming soon. Approvals in process, registrations opening shortly.</p>
-  <a href="#" class="btn-primary">Register Interest</a>
-  <a href="ongoing-projects.html" class="btn-outline">View Ongoing Projects</a>
-</div>
-
-
+            <div class="overlay">
+              <h3 style="margin:0 0 8px 0;">Vedanta, Nunna</h3>
+              <p style="margin:0 0 12px 0;">APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
+              <div>
+                <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
+                <a href="contact.html" class="btn-primary" style="padding:8px 12px;">Book Site Visit</a>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
 
       <!-- Right aside -->
       <aside class="aside-card">
@@ -131,21 +134,5 @@
       }
     })();
   </script>
-<script>
-(function(){
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  const links = document.querySelectorAll('.nav a');
-
-  links.forEach(a => {
-    const href = a.getAttribute('href') || '';
-    const file = href.split('/').pop();
-
-    if(file === path || (file === 'index.html' && (path === '' || path === 'index.html'))) {
-      a.classList.add('active');
-    }
-  });
-})();
-</script>
-
 </body>
 </html>
