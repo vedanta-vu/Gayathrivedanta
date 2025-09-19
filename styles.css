@@ -268,3 +268,20 @@ footer {
     padding-left: 6px;
   }
 }
+
+/* ---------- Active Nav Highlight ---------- */
+.nav a.btn-outline {
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid #071241;
+  color:#071241;
+  background:transparent;
+}
+
+.nav a.active,
+.nav a.btn-outline.active {
+  background: #fff;
+  color: #071241 !important;
+  border: 2px solid #071241;
+  box-shadow: 0 2px 6px rgba(7,18,65,0.08);
+}
