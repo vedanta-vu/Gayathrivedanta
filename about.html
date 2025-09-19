@@ -6,104 +6,82 @@
   <title>About - Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css?v=2" />
   <style>
-    body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f4f4f4; color:#333; }
-    .topbar { background:#071241; color:#fff; font-size:14px; }
-    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
-    .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
-
-    .site-header { background:#fff; border-bottom:1px solid #eee; }
-    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-    .logo img { height:60px; width:auto; display:block; }
-
-    /* nav */
-    .nav { display:flex; gap:18px; align-items:center; }
-    .nav a { color:#333; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:6px; }
-    .nav a:hover { color:#FFD700 !important; }
-
-    .dropdown { position:relative; }
-    .dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1px solid #e6eef0; border-radius:8px; box-shadow:0 6px 18px rgba(10,15,25,0.06); min-width:200px; z-index:100; }
-    .dropdown:hover .dropdown-menu { display:block; }
-    .dropdown-menu a { display:block; padding:10px 14px; color:#333; text-decoration:none; }
-    .dropdown-menu a:hover { background:#f4f4f4; color:#071241; }
-
-    main { max-width:1100px; margin:40px auto; padding:0 20px; }
-    h1 { text-align:center; margin-bottom:20px; font-size:32px; color:#071241; }
-    .about-content { background:#fff; padding:30px; border-radius:10px; box-shadow:0 6px 18px rgba(10,15,25,0.06); line-height:1.6; }
+    .about-section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: #fff;
+      border-radius: 12px;
+      background: linear-gradient(to right, rgba(7,18,65,0.85), rgba(143,185,58,0.85)),
+                  url('assets/about-banner.jpg') center/cover no-repeat;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+    .about-section h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .about-section p {
+      font-size: 1.2em;
+      line-height: 1.7;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
   <!-- Top strip -->
   <div class="topbar">
-    <div class="topbar-inner">
-      <div style="margin-left:auto;">
+    <div class="container topbar-inner">
+      <div class="topbar-left">
         <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
         <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
     </div>
   </div>
 
-  <!-- Main navbar -->
-  <header>
-    <div class="site-header">
-      <div class="container">
-        <!-- logo image -->
-        <a class="logo" href="index.html">
-          <img src="assets/logo.png" alt="Gayathri Developers Logo">
-        </a>
+  <!-- Header -->
+  <div class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.png" alt="Gayathri Developers Logo">
+      </a>
 
-        <!-- nav -->
-        <nav class="nav" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-
-          <div class="dropdown">
-            <a href="ongoing-projects.html" aria-haspopup="true" aria-expanded="false">Projects ▾</a>
-            <div class="dropdown-menu" role="menu" aria-label="Projects menu">
-              <a role="menuitem" href="ongoing-projects.html">Ongoing Projects</a>
-              <a role="menuitem" href="upcoming-projects.html">Upcoming Projects</a>
-            </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="btn-outline">About</a>
+        <div class="dropdown">
+          <a href="projects.html">Projects ▾</a>
+          <div class="dropdown-menu">
+            <a href="projects.html#Ongoing">Ongoing Projects</a>
+            <a href="projects.html#upcoming">Upcoming Projects</a>
           </div>
+        </div>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-          <a href="gallery.html">Gallery</a>
-          <a href="contact.html" class="btn-outline">Contact</a>
-        </nav>
-
-        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu" style="display:none;">☰</button>
-      </div>
+      <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
     </div>
-  </header>
+  </div>
 
-  <!-- About content -->
-  <main>
-    <h1>About Us</h1>
-    <div class="about-content">
+  <!-- Main Content -->
+  <main style="padding:60px 20px;">
+    <section class="about-section">
+      <h1>About Us</h1>
       <p>
-        At <strong>Gayathri Developers</strong>, we are committed to building communities
-        that combine trust, transparency, and long-term value. Our flagship project,
-        <em>Vedanta</em>, is APCRDA & RERA approved and designed to provide premium residential
-        plots in Nunna, near Vijayawada.
+        At <strong>Gayathri Developers</strong>, we are committed to creating
+        residential layouts that combine legal clarity, thoughtful planning,
+        and affordability.
       </p>
-      <p>
-        With years of experience in the real estate sector, we prioritize
-        <strong>clear title properties</strong>, <strong>Vaastu-compliant layouts</strong>, and
-        customer satisfaction. Every project is delivered with attention to detail, ensuring
-        high-quality development and hassle-free ownership.
-      </p>
-      <p>
-        Our upcoming venture, <em>Veda Infra – Phase 2</em>, continues this journey of excellence,
-        offering even more opportunities for families and investors to secure their dream property.
-      </p>
-      <p>
-        <strong>Our Vision:</strong> To develop reliable, affordable, and sustainable communities
-        that enrich lives and create lasting value for generations.
-      </p>
-    </div>
+    </section>
   </main>
 
-  <footer style="text-align:center; padding:18px 0; background:#fff;">
-    <p style="margin:0; color:#666;">&copy; 2025 Gayathri Developers | All Rights Reserved</p>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Gayathri Developers | All Rights Reserved</p>
   </footer>
 
+  <!-- Mobile menu toggle script -->
   <script>
     (function(){
       const toggle = document.getElementById('mobileToggle');
