@@ -5,170 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects - Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css?v=2" />
-  <style>
-    /* Nav hover gold (matches topbar) */
-    .nav a:hover,
-    .nav a:focus {
-      color: #FFD700 !important;
-      background: transparent !important;
-    }
-
-    /* Vedanta background project card */
-    .project-card-bg {
-      background: url("assets/vedanta-card-bg.png") no-repeat center center/cover;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-      min-height: 220px;
-      display: flex;
-      align-items: flex-end;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    .project-card-bg .overlay {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 18px;
-      border-radius: 12px;
-      width: 100%;
-    }
-
-    .project-card-bg h3,
-    .project-card-bg p {
-      color: #fff;
-    }
-
-    /* Upcoming project card (placeholder) */
-    .upcoming-card {
-      background: url("assets/veda-infra-bg.png") no-repeat center center/cover;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-      min-height: 220px;
-      display: flex;
-      align-items: flex-end;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    .upcoming-card .overlay {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 18px;
-      border-radius: 12px;
-      width: 100%;
-    }
-
-    .upcoming-card h3,
-    .upcoming-card p {
-      color: #fff;
-    }
-
-    /* Layout */
-    .projects-wrapper {
-      padding: 48px 20px;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 28px;
-      align-items: start;
-    }
-    .aside-card {
-      background:#fff;
-      padding:18px;
-      border-radius:12px;
-      box-shadow:0 6px 18px rgba(10,15,25,0.06);
-    }
-    @media (max-width:980px){
-      .projects-grid { grid-template-columns: 1fr; }
-    }
-
-    /* small button spacing override for the overlay buttons */
-    .project-card-bg .btn-outline,
-    .project-card-bg .btn-primary,
-    .upcoming-card .btn-primary {
-      margin-right: 8px;
-    }
-  </style>
 </head>
 <body>
-  <header>
-  <!-- End Header -->
-
-  <main class="projects-wrapper container" style="max-width:1200px;">
-    <div class="projects-grid">
-      <div>
-        <!-- Ongoing Projects -->
-        <section id="ongoing">
-          <h1 style="margin-top:0;">Ongoing Projects</h1>
-          <p style="color:#6b7280; max-width:700px;">
-            Explore our ongoing residential layouts, available for booking and immediate registration.
-          </p>
-
-          <!-- Vedanta Nunna Card (background) -->
-          <article class="project-card-bg">
-            <div class="overlay">
-              <h3>Vedanta, Nunna</h3>
-              <p>APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
-              <div style="margin-top:10px;">
-                <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
-                <a href="contact.html" class="btn-primary" style="padding:8px 12px;">Book Site Visit</a>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- Upcoming Projects -->
-        <section id="upcoming" style="margin-top:48px;">
-          <h1>Upcoming Projects</h1>
-          <p style="color:#6b7280; max-width:700px;">
-            Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.
-          </p>
-
-          <!-- Veda Infra Phase 2 Card (placeholder background) -->
-          <article class="upcoming-card">
-            <div class="overlay">
-              <h3>Veda Infra – Phase 2</h3>
-              <p>Premium residential layout coming soon. Approvals in process, registrations opening shortly.</p>
-              <div style="margin-top:10px;">
-                <a href="contact.html" class="btn-primary" style="padding:8px 12px;">Register Interest</a>
-              </div>
-            </div>
-          </article>
-        </section>
+  <!-- Top strip -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div style="margin-left:auto;">
+        <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
+        <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
+    </div>
+  </div>
 
-      <!-- Right aside -->
-      <aside class="aside-card">
-        <h3 style="margin-top:0;">Quick Info</h3>
-        <p style="color:#6b7280;">Need help choosing a plot? Call or WhatsApp us and we'll arrange a site visit.</p>
-        <p style="margin-top:12px;"><strong>📞 +91 79950 19237</strong></p>
-        <p style="margin:6px 0;"><strong>📍 Nunna, Vijayawada</strong></p>
+  <!-- Main navbar -->
+  <header>
+    <div class="site-header">
+      <div class="container">
+        <!-- logo -->
+        <a class="logo" href="index.html">
+          <img src="assets/logo.png" alt="Gayathri Developers Logo" style="height:60px; width:auto;">
+        </a>
 
-        <div style="margin-top:12px;">
-          <a href="assets/eBrochure.pdf" target="_blank" class="btn-outline">Download Brochure</a>
-        </div>
+        <!-- nav -->
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <div class="dropdown">
+            <a href="ongoing-projects.html" aria-haspopup="true" aria-expanded="false">Projects ▾</a>
+            <div class="dropdown-menu" role="menu" aria-label="Projects menu">
+              <a role="menuitem" href="ongoing-projects.html">Ongoing Projects</a>
+              <a role="menuitem" href="upcoming-projects.html">Upcoming Projects</a>
+            </div>
+          </div>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="btn-outline">Contact</a>
+        </nav>
 
-        <hr style="margin:18px 0; border:none; border-top:1px solid #f0f0f0;">
+        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu" style="display:none;">☰</button>
+      </div>
+    </div>
+  </header>
 
-        <h4 style="margin-bottom:6px;">Why Vedanta?</h4>
-        <ul style="margin:0; padding-left:18px; color:#6b7280;">
-          <li>Clear title &amp; approvals</li>
-          <li>Planned roads & drainage</li>
-          <li>Flexible payment plans</li>
-        </ul>
-      </aside>
+  <!-- Main content -->
+  <main style="max-width:1200px; margin:40px auto; padding:0 20px;">
+    <h1>Ongoing Projects</h1>
+    <p>Explore our ongoing residential layouts, available for booking and immediate registration.</p>
+
+    <div class="project-card" style="background:#666; color:#fff; padding:20px; border-radius:10px; margin:20px 0;">
+      <h3>Vedanta, Nunna</h3>
+      <p>APCRDA & RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
+      <a href="assets/eBrochure.pdf" target="_blank" class="btn-outline">📄 Brochure</a>
+      <a href="contact.html" class="btn-primary">Book Site Visit</a>
+    </div>
+
+    <h1>Upcoming Projects</h1>
+    <p>Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.</p>
+
+    <div class="project-card" style="background:#666; color:#fff; padding:20px; border-radius:10px; margin:20px 0;">
+      <h3>Veda Infra – Phase 2</h3>
+      <p>Premium residential layout coming soon. Approvals in process, registrations opening shortly.</p>
+      <a href="contact.html" class="btn-primary">Register Interest</a>
     </div>
   </main>
 
-  <footer style="margin-top:40px;">
-    <div style="background:#111; color:#fff; padding:18px 0; text-align:center;">
-      <small>© 2025 Gayathri Developers | All Rights Reserved</small>
-    </div>
+  <footer style="text-align:center; padding:18px 0; background:#fff;">
+    <p style="margin:0; color:#666;">&copy; 2025 Gayathri Developers | All Rights Reserved</p>
   </footer>
 
   <script>
-    // Mobile nav toggle
     (function(){
       const toggle = document.getElementById('mobileToggle');
       const nav = document.querySelector('.nav');
