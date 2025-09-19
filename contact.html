@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact - Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css?v=2" />
   <style>
+    /* Page-local styles to match the screenshot */
     body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f4f4f4; color:#333; }
     .topbar { background:#071241; color:#fff; font-size:14px; }
-    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
+    .topbar-inner { width:90%; max-width:1200px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
     .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
 
     .site-header { background:#fff; border-bottom:1px solid #eee; }
-    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+    .container { width:90%; max-width:1200px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
     .logo img { height:60px; width:auto; display:block; }
 
-    /* nav */
+    /* Nav */
     .nav { display:flex; gap:18px; align-items:center; }
     .nav a { color:#333; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:6px; }
     .nav a:hover { color:#FFD700 !important; }
@@ -26,34 +27,69 @@
     .dropdown-menu a { display:block; padding:10px 14px; color:#333; text-decoration:none; }
     .dropdown-menu a:hover { background:#f4f4f4; color:#071241; }
 
-    main { max-width:1100px; margin:40px auto; padding:0 20px; }
-    h1 { text-align:center; margin-bottom:30px; font-size:32px; color:#071241; }
+    main { max-width:1200px; margin:30px auto; padding:0 20px 60px; }
+    h1 { text-align:center; margin:18px 0 8px; font-size:32px; color:#071241; }
+    .subtitle { text-align:center; color:#6b7280; margin-bottom:18px; }
 
-    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; }
-    .contact-info { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(10,15,25,0.06); }
-    .contact-info h3 { margin-top:0; color:#071241; }
-    .contact-info p { margin:6px 0; }
-
-    .contact-form { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(10,15,25,0.06); }
-    form { display:grid; gap:14px; }
-    input, textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-family:inherit; }
-    button { background:#071241; color:#fff; padding:12px; border:none; border-radius:6px; font-weight:600; cursor:pointer; }
-    button:hover { background:#FFD700; color:#071241; }
-
-    iframe { width:100%; height:250px; border:0; border-radius:10px; margin-top:10px; }
-
-    .whatsapp-btn {
-      display:inline-block; margin-top:12px; padding:10px 18px;
-      background:#25D366; color:#fff; font-weight:600; border-radius:6px;
-      text-decoration:none;
+    /* Big card */
+    .card {
+      background:#fff;
+      border-radius:12px;
+      padding:28px;
+      box-shadow:0 8px 28px rgba(10,15,25,0.08);
+      display:flex;
+      gap:28px;
+      align-items:flex-start;
     }
-    .whatsapp-btn:hover { background:#20b858; }
-    
-    @media(max-width:900px) { .contact-grid { grid-template-columns:1fr; } }
+
+    /* WhatsApp CTA centered above the card content */
+    .wa-cta-wrap { text-align:center; margin-bottom:-36px; }
+    .wa-cta {
+      display:inline-block;
+      background:#0f5e2f; /* deep green */
+      color:#fff;
+      padding:12px 26px;
+      border-radius:8px;
+      font-weight:700;
+      text-decoration:none;
+      border:3px solid #ffd700; /* yellow border like screenshot */
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+    .wa-cta img { vertical-align:middle; margin-right:8px; height:18px; }
+
+    .card-left { flex:1; min-width:260px; }
+    .card-right { width:420px; max-width:46%; min-width:260px; }
+
+    .info-row { margin-bottom:14px; }
+    .label { font-weight:700; color:#111; margin-bottom:6px; }
+    .muted { color:#6b7280; margin-bottom:12px; display:block; }
+
+    .addr { line-height:1.6; color:#333; }
+
+    .action-row { margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-block; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:700; border:1px solid #071241; color:#071241; background:transparent; }
+    .btn.call { background:#071241; color:#fff; border-color:#071241; }
+    .btn.maps { background:#fff; color:#071241; }
+
+    iframe.map {
+      width:100%;
+      height:300px;
+      border:0;
+      border-radius:10px;
+      box-shadow:0 6px 18px rgba(10,15,25,0.06);
+    }
+
+    .logo-center { text-align:center; margin:6px 0 14px; }
+    .logo-center img { height:48px; width:auto; }
+
+    @media(max-width:960px){
+      .card { flex-direction:column; }
+      .card-right { width:100%; max-width:100%; }
+    }
   </style>
 </head>
 <body>
-  <!-- Top strip -->
+  <!-- Top blue strip -->
   <div class="topbar">
     <div class="topbar-inner">
       <div style="margin-left:auto;">
@@ -67,12 +103,10 @@
   <header>
     <div class="site-header">
       <div class="container">
-        <!-- logo image -->
         <a class="logo" href="index.html">
           <img src="assets/logo.png" alt="Gayathri Developers Logo">
         </a>
 
-        <!-- nav -->
         <nav class="nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
@@ -88,51 +122,78 @@
           <a href="gallery.html">Gallery</a>
           <a href="contact.html" class="btn-outline">Contact</a>
         </nav>
-
-        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu" style="display:none;">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- Contact main -->
   <main>
     <h1>Contact Us</h1>
+    <p class="subtitle">For bookings, site visits or enquiries — contact us via WhatsApp, phone or email.</p>
 
-    <div class="contact-grid">
-      <!-- Left: Info -->
-      <div class="contact-info">
-        <h3>📍 Our Office</h3>
-        <p>Gayathri Developers<br>Nunna, Vijayawada</p>
+    <!-- CTA (centered above card, like screenshot) -->
+    <div class="wa-cta-wrap">
+      <a class="wa-cta" href="https://wa.me/917995019237?text=Hello%20I%20am%20interested%20in%20Gayathri%20Vedanta%20plots" target="_blank" rel="noopener">
+        <!-- small bubble icon (emoji works) -->
+        💬&nbsp;&nbsp;Chat on WhatsApp
+      </a>
+    </div>
 
-        <h3>📞 Call Us</h3>
-        <p><strong>+91 79950 19237</strong></p>
-        <a class="whatsapp-btn" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+    <!-- Main card -->
+    <div class="card" style="margin-top:10px;">
+      <!-- Left: info -->
+      <div class="card-left">
+        <div class="info-row">
+          <div class="label">Phone:</div>
+          <div class="muted">+91 79950 19237</div>
+        </div>
 
-        <h3>✉️ Email</h3>
-        <p><a href="mailto:vedanta.vu@gmail.com">vedanta.vu@gmail.com</a></p>
+        <div class="info-row">
+          <div class="label">Email:</div>
+          <div class="muted"><a href="mailto:vedanta.vu@gmail.com">vedanta.vu@gmail.com</a></div>
+        </div>
 
-        <h3>📌 Office Location</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2163.39196194323!2d80.67750782623564!3d16.556528883778924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e50034bbbcd3%3A0x584c87a2b58c3fe2!2sVedanta%20(Gayathri%20developers)!5e1!3m2!1sen!2sin!4v1757947055424!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+        <hr style="border:none;border-top:1px solid #f0f0f0;margin:16px 0;">
+
+        <div class="info-row">
+          <div class="label">Office Address</div>
+          <div class="addr">
+            GAYATHRI DEVELOPERS<br>
+            D.NO: 26-23-21, Veda Heights,<br>
+            Second Floor, Gnanolive Street,<br>
+            Near Satyanarayana Swamy Temple,<br>
+            Gandhi Nagar, Vijayawada,<br>
+            Andhra Pradesh – 520003
+          </div>
+        </div>
+
+        <div class="action-row">
+          <a class="btn maps" href="https://www.google.com/maps/search/?api=1&query=16.556528883778924,80.67750782623564" target="_blank" rel="noopener">Open in Maps</a>
+          <a class="btn call" href="tel:+917995019237">Call</a>
+        </div>
       </div>
 
-      <!-- Right: Form -->
-      <div class="contact-form">
-        <h3>💬 Send us a Message</h3>
-        <form>
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
-          <textarea name="message" rows="6" placeholder="Your Message"></textarea>
-          <button type="submit">Send Message</button>
-        </form>
+      <!-- Right: small logo (center) + map -->
+      <div class="card-right">
+        <div class="logo-center">
+          <img src="assets/logo.png" alt="Gayathri Developers" style="height:42px;">
+        </div>
+
+        <!-- Embedded map (same coordinates used earlier) -->
+        <iframe
+          class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2163.39196194323!2d80.67750782623564!3d16.556528883778924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e50034bbbcd3%3A0x584c87a2b58c3fe2!2sVedanta%20(Gayathri%20developers)!5e1!3m2!1sen!2sin!4v1757947055424!5m2!1sen!2sin"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
+
   </main>
 
-  <footer style="text-align:center; padding:18px 0; background:#fff;">
-    <p style="margin:0; color:#666;">&copy; 2025 Gayathri Developers | All Rights Reserved</p>
+  <footer style="text-align:center; padding:20px 0; background:#fff;">
+    <small style="color:#666;">© 2025 Gayathri Developers | All Rights Reserved</small>
   </footer>
 
   <script>
+    // basic mobile menu toggle (if you want to enable it elsewhere)
     (function(){
       const toggle = document.getElementById('mobileToggle');
       const nav = document.querySelector('.nav');
