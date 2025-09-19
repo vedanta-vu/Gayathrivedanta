@@ -18,6 +18,16 @@
     .nav a { color:#333; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:6px; }
     .nav a:hover { color:#FFD700 !important; }
 
+    /* Active link boxed style */
+    .nav a.active {
+      background: #fff;
+      color: #071241 !important;
+      border: 2px solid #071241;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(7,18,65,0.08);
+      padding: 6px 10px;
+    }
+
     .dropdown { position:relative; }
     .dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1px solid #e6eef0; border-radius:8px; box-shadow:0 6px 18px rgba(10,15,25,0.06); min-width:200px; z-index:100; }
     .dropdown:hover .dropdown-menu { display:block; }
@@ -27,6 +37,28 @@
     main { max-width:1200px; margin:40px auto; padding:0 20px; }
     .upcoming-card { min-height:220px; border-radius:12px; overflow:hidden; margin-top:20px; display:flex; align-items:flex-end; color:#fff; }
     .upcoming-card .overlay { background:rgba(0,0,0,0.45); padding:18px; width:100%; border-radius:12px; }
+
+    /* consistent button styles (if your styles.css doesn't already have them) */
+    .btn-primary {
+      display:inline-block;
+      background:#e68926;
+      color:#fff;
+      padding:10px 14px;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .btn-outline {
+      display:inline-block;
+      background:transparent;
+      color:#071241;
+      padding:8px 12px;
+      border-radius:6px;
+      border:2px solid #071241;
+      text-decoration:none;
+      font-weight:600;
+    }
+    .btn-primary:hover { opacity:0.95; }
   </style>
 </head>
 <body>
@@ -63,7 +95,8 @@
           </div>
 
           <a href="gallery.html">Gallery</a>
-          <a href="contact.html" class="btn-outline">Contact</a>
+          <!-- removed btn-outline here so the active script controls the box -->
+          <a href="contact.html">Contact</a>
         </nav>
 
         <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
@@ -75,13 +108,17 @@
     <h1 style="font-size:36px; color:#071241; margin-top:24px;">Upcoming Projects</h1>
     <p style="color:#6b7280; max-width:800px;">Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.</p>
 
-    <!-- Veda Infra card (placeholder bg path) -->
+    <!-- Veda Infra card (background image) -->
     <article class="upcoming-card" style="background: url('assets/veda-infra-bg.png') no-repeat center center/cover;">
       <div class="overlay">
         <h3 style="margin:0 0 8px 0;">Veda Infra – Phase 2</h3>
         <p style="margin:0 0 12px 0;">Premium residential layout coming soon. Approvals in process, registrations opening shortly.</p>
         <div>
-          <a href="contact.html" class="btn-primary">Register Interest</a>
+          <!-- Updated: opens WhatsApp with pre-filled message -->
+          <a href="https://wa.me/917995019237?text=Hello,%20I%20am%20interested%20in%20Veda%20Infra%20Phase%202.%20Please%20contact%20me%20when%20registrations%20are%20available." 
+             target="_blank" 
+             class="btn-primary">Register Interest</a>
+
           <a href="ongoing-projects.html" class="btn-outline" style="margin-left:10px;">View Ongoing Projects</a>
         </div>
       </div>
@@ -103,6 +140,7 @@
       }
     })();
   </script>
+
 <script>
 (function(){
   const path = window.location.pathname.split('/').pop() || 'index.html';
