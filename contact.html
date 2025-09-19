@@ -8,37 +8,38 @@
   <style>
     body { margin:0; font-family: 'Segoe UI', sans-serif; background:#f4f4f4; color:#333; }
     .topbar { background:#071241; color:#fff; font-size:14px; }
-    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:6px 0; }
+    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
     .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
 
     .site-header { background:#fff; border-bottom:1px solid #eee; }
-    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:12px 0; }
-    .logo { font-weight:700; color:#071241; text-decoration:none; }
+    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+    .logo img { height:60px; width:auto; display:block; }
+
+    /* nav */
     .nav { display:flex; gap:18px; align-items:center; }
-    .nav a { color:#333; text-decoration:none; font-weight:600; padding:8px 10px; border-radius:6px; }
-    .btn-outline { border:1px solid #071241; padding:6px 10px; border-radius:6px; text-decoration:none; color:#071241; font-weight:600; }
+    .nav a { color:#333; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:6px; }
+    .nav a:hover { color:#FFD700 !important; }
 
-    .page-inner { max-width:1000px; margin:0 auto; padding:40px 20px; }
-    h1 { font-size:2rem; margin:0 0 8px 0; text-align:center; }
-    .muted { text-align:center; color:#666; margin-bottom:20px; }
-    .card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(10,15,25,0.06); margin-bottom:20px; }
-    .whatsapp-btn { display:inline-block; padding:14px 26px; background:#006400; color:#FFD700; text-decoration:none; border:2px solid #FFD700; border-radius:8px; font-weight:700; font-size:16px; margin-bottom:18px; }
-    .contact-details { font-size:1.04em; line-height:1.6; }
-    .contact-details a { color:#071241; text-decoration:none; font-weight:600; }
-    .map-box { width:100%; height:100%; border-radius:8px; overflow:hidden; }
-    .btn-row { display:flex; gap:8px; margin-top:12px; flex-wrap:wrap; }
-    .btn-outline-small { padding:8px 12px; border-radius:6px; border:1px solid #071241; text-decoration:none; color:#071241; font-weight:600; background:transparent; }
+    .dropdown { position:relative; }
+    .dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1px solid #e6eef0; border-radius:8px; box-shadow:0 6px 18px rgba(10,15,25,0.06); min-width:200px; z-index:100; }
+    .dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu a { display:block; padding:10px 14px; color:#333; text-decoration:none; }
+    .dropdown-menu a:hover { background:#f4f4f4; color:#071241; }
 
-    /* responsive two-column layout */
-    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start; }
-    @media (max-width:760px) {
-      .contact-grid { grid-template-columns:1fr; }
-      .map-box { height:260px; }
-    }
+    main { max-width:1200px; margin:40px auto; padding:0 20px; }
+    h1 { text-align:center; margin-bottom:20px; font-size:32px; }
+    .contact-info { display:grid; gap:20px; max-width:700px; margin:auto; }
+    .contact-card { background:#fff; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(10,15,25,0.06); }
+    .contact-card h3 { margin-top:0; color:#071241; }
+
+    form { display:grid; gap:14px; }
+    input, textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:6px; font-family:inherit; }
+    button { background:#071241; color:#fff; padding:12px; border:none; border-radius:6px; font-weight:600; cursor:pointer; }
+    button:hover { background:#FFD700; color:#071241; }
   </style>
 </head>
 <body>
-  <!-- Topbar -->
+  <!-- Top strip -->
   <div class="topbar">
     <div class="topbar-inner">
       <div style="margin-left:auto;">
@@ -48,65 +49,68 @@
     </div>
   </div>
 
-  <!-- Navbar -->
-  <div class="site-header">
-    <div class="container">
-      <a class="logo" href="index.html">Gayathri Developers</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html" class="btn-outline">Contact</a>
-      </nav>
-    </div>
-  </div>
+  <!-- Main navbar -->
+  <header>
+    <div class="site-header">
+      <div class="container">
+        <!-- logo image -->
+        <a class="logo" href="index.html">
+          <img src="assets/logo.png" alt="Gayathri Developers Logo">
+        </a>
 
-  <!-- Main -->
-  <main class="page-inner">
-    <h1>Contact Us</h1>
-    <p class="muted">For bookings, site visits or enquiries — contact us via WhatsApp, phone or email.</p>
+        <!-- nav -->
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
 
-    <div class="card" style="text-align:center;">
-      <!-- WhatsApp button -->
-      <a class="whatsapp-btn" href="https://wa.me/917995019237?text=Hello%20I%20am%20interested%20in%20Gayathri%20Vedanta%20plots" target="_blank" rel="noopener">
-        💬 Chat on WhatsApp
-      </a>
-
-      <!-- Logo -->
-      <img src="assets/logo.png" alt="Gayathri Developers Logo" style="height:70px; width:auto; display:block; margin:0 auto 20px;">
-      
-      <!-- Two-column layout -->
-      <div class="contact-grid">
-        <!-- Left: address + buttons -->
-        <div class="contact-details" style="text-align:left;">
-          <p><strong>Phone:</strong> <a href="tel:+917995019237">+91 79950 19237</a></p>
-          <p><strong>Email:</strong> <a href="mailto:vedanta.vu@gmail.com">vedanta.vu@gmail.com</a></p>
-
-          <hr style="border:none;border-top:1px solid #eef0f2;margin:14px 0;">
-
-          <p><strong>Office Address</strong></p>
-          <address style="font-style:normal; margin:6px 0; line-height:1.5;">
-            GAYATHRI DEVELOPERS<br>
-            D.NO: 26-23-21, Veda Heights,<br>
-            Second Floor, Gnanolive Street,<br>
-            Near Satyanarayana Swamy Temple,<br>
-            Gandhi Nagar, Vijayawada,<br>
-            Andhra Pradesh – 520003
-          </address>
-
-          <div class="btn-row">
-            <a class="btn-outline-small" href="https://www.google.com/maps?q=Veda+Heights%2C+Gandhi+Nagar%2C+Vijayawada" target="_blank" rel="noopener">Open in Maps</a>
-            <a class="btn-outline-small" href="tel:+917995019237">Call</a>
+          <div class="dropdown">
+            <a href="ongoing-projects.html" aria-haspopup="true" aria-expanded="false">Projects ▾</a>
+            <div class="dropdown-menu" role="menu" aria-label="Projects menu">
+              <a role="menuitem" href="ongoing-projects.html">Ongoing Projects</a>
+              <a role="menuitem" href="upcoming-projects.html">Upcoming Projects</a>
+            </div>
           </div>
-        </div>
 
-        <!-- Right: map -->
-        <div class="map-box" style="height:300px;">
-          <iframe 
-            src="https://www.google.com/maps?q=Veda+Heights%2C+Gandhi+Nagar%2C+Vijayawada&output=embed" 
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="btn-outline">Contact</a>
+        </nav>
+
+        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu" style="display:none;">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contact main -->
+  <main>
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+      <!-- Address -->
+      <div class="contact-card">
+        <h3>📍 Address</h3>
+        <p>Gayathri Developers<br> Nunna, Vijayawada</p>
+      </div>
+
+      <!-- Phone -->
+      <div class="contact-card">
+        <h3>📞 Phone</h3>
+        <p>+91 79950 19237</p>
+      </div>
+
+      <!-- Email -->
+      <div class="contact-card">
+        <h3>✉️ Email</h3>
+        <p><a href="mailto:vedanta.vu@gmail.com">vedanta.vu@gmail.com</a></p>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-card">
+        <h3>💬 Send us a Message</h3>
+        <form>
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+          <button type="submit">Send Message</button>
+        </form>
       </div>
     </div>
   </main>
@@ -114,5 +118,15 @@
   <footer style="text-align:center; padding:18px 0; background:#fff;">
     <p style="margin:0; color:#666;">&copy; 2025 Gayathri Developers | All Rights Reserved</p>
   </footer>
+
+  <script>
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const nav = document.querySelector('.nav');
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => nav.classList.toggle('open'));
+      }
+    })();
+  </script>
 </body>
 </html>
