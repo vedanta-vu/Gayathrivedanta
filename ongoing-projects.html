@@ -6,72 +6,132 @@
   <title>Ongoing Projects — Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css?v=2" />
   <style>
-    /* small page-local tweaks */
-    .nav a:hover, .nav a:focus { color: #FFD700 !important; }
-    .page-cta {
-      margin-top: 18px;
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .project-card-bg {
-      background: url("assets/vedanta-card-bg.png") no-repeat center center/cover;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-      min-height: 220px;
-      display: flex;
-      align-items: flex-end;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-    .project-card-bg .overlay {
-      background: rgba(0,0,0,0.5);
-      padding: 18px;
-      border-radius: 12px;
-      width: 100%;
-    }
+    /* small page-local tweaks to ensure header/menu appearance */
+    .topbar { background:#071241; color:#fff; font-size:14px; }
+    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
+    .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
+
+    .site-header { background:#fff; border-bottom:1px solid #eee; }
+    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
+    .logo img { height:60px; width:auto; display:block; }
+
+    .nav { display:flex; gap:18px; align-items:center; }
+    .nav a { color:#333; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:6px; }
+    .nav a:hover { color:#FFD700 !important; }
+
+    .dropdown { position:relative; }
+    .dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1px solid #e6eef0; border-radius:8px; box-shadow:0 6px 18px rgba(10,15,25,0.06); min-width:200px; z-index:100; }
+    .dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu a { display:block; padding:10px 14px; color:#333; text-decoration:none; }
+    .dropdown-menu a:hover { background:#f4f4f4; color:#071241; }
+
+    .projects-wrapper { padding:48px 20px; max-width:1200px; margin:0 auto; }
+    .project-card-bg, .upcoming-card { min-height:220px; border-radius:12px; display:flex; align-items:flex-end; overflow:hidden; margin-top:20px; color:#fff; }
+    .project-card-bg .overlay, .upcoming-card .overlay { background:rgba(0,0,0,0.45); padding:18px; width:100%; border-radius:12px; }
+    .aside-card { background:#fff; padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(10,15,25,0.06); }
+    @media(max-width:980px){ .projects-grid { grid-template-columns: 1fr; } .container { padding:12px; } }
   </style>
 </head>
 <body>
-  <!-- header (topbar + main nav) -->
-  <header>
-
-  <main class="container" style="max-width:1200px; padding:48px 20px;">
-    <h1>Ongoing Projects</h1>
-    <p style="color:#6b7280; max-width:700px;">
-      Explore our ongoing residential layouts, available for booking and immediate registration.
-    </p>
-
-    <div class="page-cta">
-      <span style="color:#6b7280">Want to see upcoming launches?</span>
-      <a href="upcoming-projects.html" class="btn-primary" style="padding:8px 12px;">View Upcoming Projects</a>
-    </div>
-
-    <!-- Vedanta Card -->
-    <article class="project-card-bg">
-      <div class="overlay">
-        <h3 style="margin:0 0 8px 0;">Vedanta, Nunna</h3>
-        <p style="margin:0 0 12px 0;">APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
-        <div>
-          <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
-          <a href="contact.html" class="btn-primary">Book Site Visit</a>
-        </div>
+  <!-- Top strip -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div style="margin-left:auto;">
+        <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
+        <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
-    </article>
+    </div>
+  </div>
+
+  <!-- Main navbar -->
+  <header>
+    <div class="site-header">
+      <div class="container">
+        <!-- logo image -->
+        <a class="logo" href="index.html">
+          <img src="assets/logo.png" alt="Gayathri Developers Logo">
+        </a>
+
+        <!-- nav -->
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+
+          <div class="dropdown">
+            <a href="ongoing-projects.html" aria-haspopup="true" aria-expanded="false">Projects ▾</a>
+            <div class="dropdown-menu" role="menu" aria-label="Projects menu">
+              <a role="menuitem" href="ongoing-projects.html">Ongoing Projects</a>
+              <a role="menuitem" href="upcoming-projects.html">Upcoming Projects</a>
+            </div>
+          </div>
+
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="btn-outline">Contact</a>
+        </nav>
+
+        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="projects-wrapper">
+    <div class="projects-grid" style="display:grid; grid-template-columns: 1fr 380px; gap:28px; align-items:start;">
+      <div>
+        <section id="ongoing">
+          <h1 style="margin-top:0; font-size:36px; color:#071241;">Ongoing Projects</h1>
+          <p style="color:#6b7280; max-width:700px;">Explore our ongoing residential layouts, available for booking and immediate registration.</p>
+
+          <!-- Vedanta Nunna Card (background) -->
+          <article class="project-card-bg" style="background: url('assets/vedanta-card-bg.png') no-repeat center center/cover;">
+            <div class="overlay">
+              <h3 style="margin:0 0 8px 0;">Vedanta, Nunna</h3>
+              <p style="margin:0 0 12px 0;">APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
+              <div>
+                <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
+                <a href="contact.html" class="btn-primary" style="padding:8px 12px;">Book Site Visit</a>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <!-- Right aside -->
+      <aside class="aside-card">
+        <h3 style="margin-top:0;">Quick Info</h3>
+        <p style="color:#6b7280;">Need help choosing a plot? Call or WhatsApp us and we'll arrange a site visit.</p>
+        <p style="margin-top:12px;"><strong>📞 +91 79950 19237</strong></p>
+        <p style="margin:6px 0;"><strong>📍 Nunna, Vijayawada</strong></p>
+
+        <div style="margin-top:12px;">
+          <a href="assets/eBrochure.pdf" target="_blank" class="btn-outline">Download Brochure</a>
+        </div>
+
+        <hr style="margin:18px 0; border:none; border-top:1px solid #f0f0f0;">
+
+        <h4 style="margin-bottom:6px;">Why Vedanta?</h4>
+        <ul style="margin:0; padding-left:18px; color:#6b7280;">
+          <li>Clear title &amp; approvals</li>
+          <li>Planned roads & drainage</li>
+          <li>Flexible payment plans</li>
+        </ul>
+      </aside>
+    </div>
   </main>
 
   <footer style="margin-top:40px;">
-    <div style="background:#111;color:#fff;padding:18px 0;text-align:center;">
+    <div style="background:#111; color:#fff; padding:18px 0; text-align:center;">
       <small>© 2025 Gayathri Developers | All Rights Reserved</small>
     </div>
   </footer>
 
   <script>
+    // mobile nav toggle and basic behavior
     (function(){
       const toggle = document.getElementById('mobileToggle');
       const nav = document.querySelector('.nav');
-      if(toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('open'));
+      if (toggle && nav) {
+        toggle.addEventListener('click', () => nav.classList.toggle('open'));
+      }
     })();
   </script>
 </body>
