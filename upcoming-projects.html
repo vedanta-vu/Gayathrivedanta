@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Upcoming Projects — Gayathri Developers</title>
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <style>
+    .nav a:hover, .nav a:focus { color:#FFD700 !important; }
+    .upcoming-card {
+      background: url("assets/veda-infra-bg.png") no-repeat center center/cover;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .upcoming-card .overlay { background: rgba(0,0,0,0.5); padding:18px; border-radius:12px; width:100%; }
+  </style>
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          <a class="top-email" href="mailto:vedanta.vu@gmail.com">✉️ vedanta.vu@gmail.com</a>
+          <a class="top-whatsapp" href="https://wa.me/917995019237" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Gayathri Developers</a>
+
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+
+          <div class="dropdown">
+            <a href="ongoing-projects.html">Ongoing Projects ▾</a>
+            <div class="dropdown-menu">
+              <a href="ongoing-projects.html">Ongoing Projects</a>
+              <a href="upcoming-projects.html">Upcoming Projects</a>
+            </div>
+          </div>
+
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html" class="btn-outline">Contact</a>
+        </nav>
+
+        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="max-width:1200px; padding:48px 20px;">
+    <h1>Upcoming Projects</h1>
+    <p style="color:#6b7280; max-width:700px;">
+      Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.
+    </p>
+
+    <div style="margin-top:18px; display:flex; gap:12px; align-items:center;">
+      <span style="color:#6b7280">Looking for ongoing projects?</span>
+      <a href="ongoing-projects.html" class="btn-primary">View Ongoing Projects</a>
+    </div>
+
+    <!-- Veda Infra card (placeholder background path) -->
+    <article class="upcoming-card">
+      <div class="overlay">
+        <h3 style="margin:0 0 8px 0;">Veda Infra – Phase 2</h3>
+        <p style="margin:0 0 12px 0;">Premium residential layout coming soon. Approvals in process, registrations opening shortly.</p>
+        <div>
+          <a href="contact.html" class="btn-primary">Register Interest</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer style="margin-top:40px;">
+    <div style="background:#111;color:#fff;padding:18px 0;text-align:center;">
+      <small>© 2025 Gayathri Developers | All Rights Reserved</small>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle = document.getElementById('mobileToggle');
+      const nav = document.querySelector('.nav');
+      if(toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('open'));
+    })();
+  </script>
+</body>
+</html>
