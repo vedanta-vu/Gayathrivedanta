@@ -1,3 +1,4 @@
+/* ========== base ========== */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -42,7 +43,6 @@ body {
   text-decoration: none;       /* cleaner than underline */
 }
 
-
 /* ---------- Main header ---------- */
 .site-header {
   background-color: #fff; /* switched to white */
@@ -75,7 +75,6 @@ body {
   width: auto;    /* keep proportions */
   display: block; /* removes extra spacing under image */
 }
-
 
 /* Nav */
 .nav {
@@ -138,8 +137,50 @@ body {
   cursor: pointer;
 }
 
-/* Button outline */
+/* ---------- Buttons: unified site-wide styles ---------- */
+/* Base for both */
+.btn-primary,
 .btn-outline {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background-color .18s ease, color .18s ease, transform .12s ease, box-shadow .18s ease;
+  box-shadow: 0 6px 18px rgba(7,18,65,0.06);
+}
+
+/* Primary — green filled with gold accent (used for Download Brochure) */
+.btn-primary {
+  background: #006400;           /* deep green */
+  color: #FFD700;                /* gold text */
+  border: 2px solid #FFD700;     /* gold border */
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #FFD700;
+  color: #006400;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(7,18,65,0.10);
+}
+
+/* Outline — gold outline used for secondary actions (WhatsApp) */
+.btn-outline {
+  background: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+}
+.btn-outline:hover,
+.btn-outline:focus {
+  background: #FFD700;
+  color: #006400;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(7,18,65,0.10);
+}
+
+/* Legacy / fallback small-outline kept for any old uses */
+.btn-outline-small {
   border: 1px solid #071241;
   padding: 6px 12px;
   border-radius: 6px;
@@ -148,7 +189,7 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
-.btn-outline:hover {
+.btn-outline-small:hover {
   background: #071241;
   color: #fff;
 }
@@ -192,18 +233,16 @@ body {
   z-index: 2;
 }
 
-.btn-primary {
-  background-color: #e67e22;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 20px;
+/* hero buttons wrapper */
+.hero-buttons {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-/* ---------- Features ---------- */
+/* ---------- Features (if used elsewhere) ---------- */
 .features {
   padding: 40px 20px;
   background-color: white;
@@ -285,49 +324,8 @@ footer {
   border: 2px solid #071241;
   box-shadow: 0 2px 6px rgba(7,18,65,0.08);
 }
-.hero-buttons {
-  margin-top: 22px;
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
 
-.btn-primary {
-  background-color: #006400;
-  color: #FFD700;
-  padding: 12px 24px;
-  border: 2px solid #FFD700;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn-primary:hover {
-  background: #FFD700;
-  color: #006400;
-}
-
-.btn-outline {
-  background: transparent;
-  color: #FFD700;
-  border: 2px solid #FFD700;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn-outline:hover {
-  background: #FFD700;
-  color: #006400;
-}
-
-/* Highlights Section */
+/* ---------- Highlights Section ---------- */
 .highlights {
   background: #fff;
   padding: 40px 20px;
@@ -350,13 +348,13 @@ footer {
   padding: 20px;
   text-align: center;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.25s ease;
 }
 
 .highlight:hover {
   transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
-
 
 .highlight .icon {
   display: flex;
@@ -373,11 +371,22 @@ footer {
   box-shadow: 0 4px 12px rgba(7,18,65,0.2);
 }
 
-
-
 .highlight p {
   margin: 0;
   font-size: 15px;
   font-weight: 600;
   color: #071241;
+}
+
+/* small responsiveness for highlights */
+@media (max-width: 900px) {
+  .highlights-container {
+    gap: 20px;
+  }
+}
+@media (max-width: 680px) {
+  .highlights-container {
+    flex-direction: column;
+    gap: 14px;
+  }
 }
