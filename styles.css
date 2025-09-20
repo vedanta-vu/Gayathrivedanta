@@ -335,24 +335,28 @@ footer {
 }
 
 .highlights-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 20px auto;
   max-width: 1100px;
-  margin: auto;
 }
 
 .highlight {
-  background: #f9fafb;
+  flex: 1 1 220px;
+  background: #fff;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 6px 18px rgba(10,15,25,0.05);
-  transition: transform 0.2s ease;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
 }
 
 .highlight:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
 }
+
 
 .highlight .icon {
   display: flex;
