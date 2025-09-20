@@ -6,59 +6,17 @@
   <title>Upcoming Projects — Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css?v=2" />
   <style>
-    .topbar { background:#071241; color:#fff; font-size:14px; }
-    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
-    .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
-
-    .site-header { background:#fff; border-bottom:1px solid #eee; }
-    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-    .logo img { height:60px; width:auto; display:block; }
-
-    .nav { display:flex; gap:18px; align-items:center; }
-    .nav a { color:#333; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:6px; }
-    .nav a:hover { color:#FFD700 !important; }
-
-    /* Active link boxed style */
-    .nav a.active {
-      background: #fff;
-      color: #071241 !important;
-      border: 2px solid #071241;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(7,18,65,0.08);
-      padding: 6px 10px;
-    }
-
-    .dropdown { position:relative; }
-    .dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1px solid #e6eef0; border-radius:8px; box-shadow:0 6px 18px rgba(10,15,25,0.06); min-width:200px; z-index:100; }
-    .dropdown:hover .dropdown-menu { display:block; }
-    .dropdown-menu a { display:block; padding:10px 14px; color:#333; text-decoration:none; }
-    .dropdown-menu a:hover { background:#f4f4f4; color:#071241; }
-
     main { max-width:1200px; margin:40px auto; padding:0 20px; }
-    .upcoming-card { min-height:220px; border-radius:12px; overflow:hidden; margin-top:20px; display:flex; align-items:flex-end; color:#fff; }
-    .upcoming-card .overlay { background:rgba(0,0,0,0.45); padding:18px; width:100%; border-radius:12px; }
-
-    /* consistent button styles (if your styles.css doesn't already have them) */
-    .btn-primary {
-      display:inline-block;
-      background:#e68926;
-      color:#fff;
-      padding:10px 14px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:700;
+    .upcoming-card {
+      border-radius:12px; overflow:hidden; position:relative; min-height:220px; margin-top:20px;
+      background-size:cover; background-position:center center;
     }
-    .btn-outline {
-      display:inline-block;
-      background:transparent;
-      color:#071241;
-      padding:8px 12px;
-      border-radius:6px;
-      border:2px solid #071241;
-      text-decoration:none;
-      font-weight:600;
+    .upcoming-card .overlay {
+      background: rgba(0,0,0,0.45);
+      padding:24px; color:#fff; min-height:220px; display:flex; flex-direction:column; justify-content:center;
     }
-    .btn-primary:hover { opacity:0.95; }
+    .upcoming-card h3 { margin:0 0 8px 0; color:#fff; }
+    .upcoming-card p { margin:0 0 16px 0; color:#f0f0f0; }
   </style>
 </head>
 <body>
@@ -72,90 +30,55 @@
     </div>
   </div>
 
-  <!-- Main navbar -->
-  <header>
-    <div class="site-header">
-      <div class="container">
-        <!-- logo image -->
-        <a class="logo" href="index.html">
-          <img src="assets/logo.png" alt="Gayathri Developers Logo">
-        </a>
-
-        <!-- nav -->
-        <nav class="nav" aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-
-          <div class="dropdown">
-            <a href="ongoing-projects.html" aria-haspopup="true" aria-expanded="false">Projects ▾</a>
-            <div class="dropdown-menu" role="menu" aria-label="Projects menu">
-              <a role="menuitem" href="ongoing-projects.html">Ongoing Projects</a>
-              <a role="menuitem" href="upcoming-projects.html">Upcoming Projects</a>
-            </div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html"><img src="assets/logo.png" alt="Gayathri Developers"></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="dropdown">
+          <a href="ongoing-projects.html">Projects ▾</a>
+          <div class="dropdown-menu">
+            <a href="ongoing-projects.html">Ongoing Projects</a>
+            <a href="upcoming-projects.html">Upcoming Projects</a>
           </div>
-
-          <a href="gallery.html">Gallery</a>
-          <!-- removed btn-outline here so the active script controls the box -->
-          <a href="contact.html">Contact</a>
-        </nav>
-
-        <button id="mobileToggle" class="mobile-toggle" aria-label="Open menu">☰</button>
-      </div>
+        </div>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </header>
 
   <main>
-    <h1 style="font-size:36px; color:#071241; margin-top:24px;">Upcoming Projects</h1>
-    <p style="color:#6b7280; max-width:800px;">Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.</p>
+    <h1 style="color:#071241;">Upcoming Projects</h1>
+    <p style="color:#6b7280; max-width:820px;">Stay tuned for our next launches — more residential layouts designed with the same transparency and quality.</p>
 
-    <!-- Veda Infra card (background image) -->
-    <article class="upcoming-card" style="background: url('assets/veda-infra-bg.png') no-repeat center center/cover;">
+    <!-- Veda Infra card (replace image after you upload) -->
+    <article class="upcoming-card" style="background-image:url('assets/veda-phase2.jpg');">
       <div class="overlay">
-        <h3 style="margin:0 0 8px 0;">Veda Infra – Phase 2</h3>
-        <p style="margin:0 0 12px 0;">Premium residential layout coming soon. Approvals in process, registrations opening shortly.</p>
-        <div>
-          <!-- Updated: opens WhatsApp with pre-filled message -->
-          <a href="https://wa.me/917995019237?text=Hello,%20I%20am%20interested%20in%20Veda%20Infra%20Phase%202.%20Please%20contact%20me%20when%20registrations%20are%20available." 
-             target="_blank" 
-             class="btn-primary">Register Interest</a>
+        <h3>Veda Infra – Phase 2</h3>
+        <p>Premium residential layout coming soon. Approvals in process, registrations opening shortly.</p>
 
-          <a href="ongoing-projects.html" class="btn-outline" style="margin-left:10px;">View Ongoing Projects</a>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <!-- WhatsApp prefilled message -->
+          <a href="https://wa.me/917995019237?text=Hello,%20I%20am%20interested%20in%20Veda%20Infra%20Phase%202.%20Please%20contact%20me%20when%20registrations%20are%20available." 
+             target="_blank" class="btn-primary">Register Interest</a>
+
+          <a href="ongoing-projects.html" class="btn-outline">View Ongoing Projects</a>
         </div>
       </div>
     </article>
+
   </main>
 
-  <footer style="margin-top:40px;">
-    <div style="background:#111; color:#fff; padding:18px 0; text-align:center;">
-      <small>© 2025 Gayathri Developers | All Rights Reserved</small>
-    </div>
+  <footer style="text-align:center; padding:22px 0; background:#fff; margin-top:40px;">
+    <small style="color:#666;">© 2025 Gayathri Developers | All Rights Reserved</small>
   </footer>
 
   <script>
-    (function(){
-      const toggle = document.getElementById('mobileToggle');
-      const nav = document.querySelector('.nav');
-      if (toggle && nav) {
-        toggle.addEventListener('click', () => nav.classList.toggle('open'));
-      }
-    })();
+    (function(){ const toggle = document.getElementById('mobileToggle'); const nav = document.querySelector('.nav'); if (toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('open')); })();
+    (function(){ const path = window.location.pathname.split('/').pop() || 'index.html'; const links = document.querySelectorAll('.nav a'); links.forEach(a => { const href = a.getAttribute('href') || ''; const file = href.split('/').pop(); if(file === path || (file === 'index.html' && (path === '' || path === 'index.html'))) a.classList.add('active'); }); })();
   </script>
-
-<script>
-(function(){
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  const links = document.querySelectorAll('.nav a');
-
-  links.forEach(a => {
-    const href = a.getAttribute('href') || '';
-    const file = href.split('/').pop();
-
-    if(file === path || (file === 'index.html' && (path === '' || path === 'index.html'))) {
-      a.classList.add('active');
-    }
-  });
-})();
-</script>
-
 </body>
 </html>
