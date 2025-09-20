@@ -330,7 +330,11 @@ footer {
   background: #fff;
   padding: 40px 20px;
   text-align: center;
+  margin-top: -30px;  /* pull section upwards */
+  position: relative;
+  z-index: 2;         /* make sure it stays above background if overlapping */
 }
+
 
 .highlights-container {
   display: grid;
