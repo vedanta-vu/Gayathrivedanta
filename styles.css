@@ -333,13 +333,28 @@ footer {
 }
 
 .highlights-container {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* force 4 in a row */
   gap: 30px;
-  flex-wrap: wrap;
   margin: 20px auto;
-  max-width: 1100px;
+  max-width: 1200px;
+  align-items: stretch;
 }
+
+/* Tablet: 2 per row */
+@media (max-width: 900px) {
+  .highlights-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: stack in 1 column */
+@media (max-width: 500px) {
+  .highlights-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .highlight {
   flex: 1 1 220px;
