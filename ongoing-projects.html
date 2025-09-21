@@ -7,33 +7,22 @@
   <link rel="stylesheet" href="styles.css?v=2" />
   <style>
     /* small page-local tweaks */
-    .topbar { background:#071241; color:#fff; font-size:14px; }
-    .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
-    .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
-
-    .site-header { background:#fff; border-bottom:1px solid #eee; }
-    .container { width:90%; max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 0; }
-    .logo img { height:60px; width:auto; display:block; }
-
-    .nav { display:flex; gap:18px; align-items:center; }
-    .nav a { color:#333; text-decoration:none; font-weight:600; padding:6px 8px; border-radius:6px; }
-    .nav a:hover { color:#FFD700 !important; }
-
-    .dropdown { position:relative; }
-    .dropdown-menu { display:none; position:absolute; top:calc(100% + 8px); left:0; background:#fff; border:1px solid #e6eef0; border-radius:8px; box-shadow:0 6px 18px rgba(10,15,25,0.06); min-width:200px; z-index:100; }
-    .dropdown:hover .dropdown-menu { display:block; }
-    .dropdown-menu a { display:block; padding:10px 14px; color:#333; text-decoration:none; }
-    .dropdown-menu a:hover { background:#f4f4f4; color:#071241; }
-
     .projects-wrapper { padding:48px 20px; max-width:1200px; margin:0 auto; }
-    .project-card-bg { min-height:240px; border-radius:12px; display:flex; align-items:flex-end; overflow:hidden; margin-top:20px; color:#fff; box-shadow:0 6px 20px rgba(0,0,0,0.25); }
-    .project-card-bg .overlay { background:rgba(0,0,0,0.5); padding:22px; width:100%; border-radius:12px; }
-
-    .aside-card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 18px rgba(10,15,25,0.08); position:sticky; top:100px; }
-
+    .project-card-bg, .project-details { border-radius:12px; overflow:hidden; margin-top:20px; }
+    .project-card-bg { min-height:220px; display:flex; align-items:flex-end; color:#fff; background-size:cover; background-position:center; }
+    .project-card-bg .overlay { background:rgba(0,0,0,0.45); padding:18px; width:100%; }
+    .project-details { background:#fff; padding:22px; box-shadow:0 8px 28px rgba(10,15,25,0.06); }
+    .project-meta { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .meta-pill { background:#f4f6f8; padding:8px 12px; border-radius:999px; font-weight:600; color:#333; }
+    .project-gallery { display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
+    .project-gallery img { width:140px; height:88px; object-fit:cover; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.06); cursor:pointer; }
+    .spec-table { width:100%; border-collapse:collapse; margin-top:12px; }
+    .spec-table td { padding:8px 10px; border-bottom:1px solid #f2f4f6; color:#333; }
+    .aside-card { background:#fff; padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(10,15,25,0.06); position:relative; top:0; }
+    .aside-actions { display:flex; gap:12px; margin-top:12px; flex-wrap:wrap; }
     @media(max-width:980px){
-      .projects-grid { grid-template-columns: 1fr; }
-      .aside-card { position:static; }
+      .projects-grid { grid-template-columns: 1fr !important; }
+      .project-gallery img{ width:100px; height:66px; }
     }
   </style>
 </head>
@@ -52,12 +41,10 @@
   <header>
     <div class="site-header">
       <div class="container">
-        <!-- logo image -->
         <a class="logo" href="index.html">
           <img src="assets/logo.png" alt="Gayathri Developers Logo">
         </a>
 
-        <!-- nav -->
         <nav class="nav" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
@@ -80,55 +67,130 @@
   </header>
 
   <main class="projects-wrapper">
-  <div class="projects-grid" style="display:grid; grid-template-columns: 1fr 380px; gap:28px; align-items:start;">
-    <div>
-      <section id="ongoing">
-        <h1 style="margin-top:0; font-size:36px; color:#071241;">Ongoing Projects</h1>
-        <p style="color:#6b7280; max-width:700px;">
-          Explore our ongoing residential layouts, available for booking and immediate registration.
-        </p>
+    <div class="projects-grid" style="display:grid; grid-template-columns: 1fr 380px; gap:28px; align-items:start;">
+      <div>
+        <section id="ongoing">
+          <h1 style="margin-top:0; font-size:36px; color:#071241;">Ongoing Projects</h1>
+          <p style="color:#6b7280; max-width:700px;">
+            Explore our ongoing residential layouts — ready for booking with clear titles and spot registration.
+          </p>
 
-        <!-- Vedanta Nunna Card with background -->
-        <article class="project-card-bg" style="background:url('assets/vedanta-card-bg.png') no-repeat center center/cover;">
-          <div class="overlay">
-            <h3 style="margin:0 0 8px 0;">Vedanta, Nunna</h3>
-            <p style="margin:0 0 12px 0;">
-              APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.
-            </p>
-            <div>
-              <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
-              <a href="contact.html" class="btn-primary">🚗 Book Site Visit</a>
+          <!-- Vedanta Nunna main card with background image -->
+          <article class="project-card-bg" style="background:url('assets/vedanta-card-bg.png') no-repeat center center/cover;">
+            <div class="overlay">
+              <h3 style="margin:0 0 8px 0;">Vedanta, Nunna</h3>
+              <p style="margin:0 0 12px 0;">
+                APCRDA &amp; RERA approved premium residential plots near Vijayawada. Immediate registrations and clear titles.
+              </p>
+
+              <div class="project-meta">
+                <div class="meta-pill">APCRDA &amp; RERA</div>
+                <div class="meta-pill">Vaastu Compliant</div>
+                <div class="meta-pill">Spot Registration</div>
+                <div class="meta-pill">Starting ₹X / sq. yd</div>
+              </div>
+
+              <div style="margin-top:12px;">
+                <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
+                <a href="contact.html" class="btn-primary">🚗 Book Site Visit</a>
+              </div>
             </div>
+          </article>
+
+          <!-- Expanded details block -->
+          <div class="project-details">
+            <h4 style="margin:12px 0 6px;">Project Details</h4>
+            <p style="margin:0 0 12px; color:#444;">
+              Vedanta is a thoughtfully planned residential layout featuring wide 30' & 40' roads, landscaped parks, underground drainage,
+              street lights and a secure gated entrance. Plots are offered in multiple sizes to suit family and investment needs.
+            </p>
+
+            <div style="display:flex; gap:18px; flex-wrap:wrap;">
+              <div style="flex:1; min-width:240px;">
+                <h5 style="margin:6px 0 8px;">Available Plot Sizes</h5>
+                <ul style="margin:0 0 12px 18px; color:#6b7280;">
+                  <li>600 sq.ft (small)</li>
+                  <li>1000 sq.ft (regular)</li>
+                  <li>2000+ sq.ft (corner / premium)</li>
+                </ul>
+              </div>
+
+              <div style="flex:1; min-width:240px;">
+                <h5 style="margin:6px 0 8px;">Approvals &amp; Legal</h5>
+                <p style="margin:0 0 12px; color:#6b7280;">
+                  Fully approved by APCRDA and registered with RERA (documents available on request). Clear chain of title and spot registration facility.
+                </p>
+              </div>
+            </div>
+
+            <h5 style="margin:8px 0 8px;">Amenities</h5>
+            <ul style="margin:0 0 12px 18px; color:#6b7280;">
+              <li>Children's park & jogging track</li>
+              <li>Underground drainage & treated water supply</li>
+              <li>Compound walls, gated entry and 24/7 security</li>
+              <li>Street lighting and tree-lined avenues</li>
+            </ul>
+
+            <h5 style="margin:8px 0 8px;">Payment Options</h5>
+            <p style="margin:0 0 12px; color:#6b7280;">
+              Flexible installments available. Contact our sales team for the current payment plan and offers.
+            </p>
+
+            <table class="spec-table" role="table" aria-label="Project specifications">
+              <tr><td style="width:45%"><strong>Project Type</strong></td><td>Residential Plots</td></tr>
+              <tr><td><strong>Location</strong></td><td>Nunna, Vijayawada</td></tr>
+              <tr><td><strong>Approvals</strong></td><td>APCRDA, RERA</td></tr>
+              <tr><td><strong>Possession</strong></td><td>Immediate (selected plots)</td></tr>
+            </table>
+
+            <!-- Small gallery (clickable thumbnails) -->
+            <div style="margin-top:12px;">
+              <h5 style="margin:0 0 8px;">Project Photos</h5>
+              <div class="project-gallery" aria-hidden="false">
+                <img src="assets/gallery/vedanta1.jpg" alt="Vedanta photo 1" loading="lazy">
+                <img src="assets/gallery/vedanta2.jpg" alt="Vedanta photo 2" loading="lazy">
+                <img src="assets/gallery/vedanta3.jpg" alt="Vedanta photo 3" loading="lazy">
+                <img src="assets/gallery/vedanta4.jpg" alt="Vedanta photo 4" loading="lazy">
+              </div>
+              <small style="display:block; margin-top:8px; color:#6b7280;">Click any photo to view larger (if you add a lightbox later we can enable that).</small>
+            </div>
+
           </div>
-        </article>
-      </section>
-    </div>
-
-    <!-- Quick Info -->
-    <aside class="aside-card">
-      <h3 style="margin-top:0;">Quick Info</h3>
-      <p style="color:#6b7280;">Need help choosing a plot? Call or WhatsApp us and we'll arrange a site visit.</p>
-
-      <p style="margin-top:12px;"><strong>📞 +91 79950 19237</strong></p>
-      <p style="margin:6px 0;"><strong>📍 Nunna, Vijayawada</strong></p>
-
-      <div style="margin-top:16px; display:flex; flex-direction:column; gap:12px;">
-        <a href="assets/eBrochure.pdf" target="_blank" class="btn-outline">📄 Download Brochure</a>
-        <a href="https://wa.me/917995019237?text=Hello%20I%20am%20interested%20in%20Gayathri%20Vedanta%20plots" 
-           target="_blank" rel="noopener" class="btn-primary">💬 Chat on WhatsApp</a>
+        </section>
       </div>
 
-      <hr style="margin:18px 0; border:none; border-top:1px solid #f0f0f0;">
+      <!-- Right aside (Quick Info) -->
+      <aside class="aside-card" aria-labelledby="quickinfo-heading">
+        <h3 id="quickinfo-heading" style="margin-top:0;">Quick Info</h3>
+        <p style="color:#6b7280;">Need help choosing a plot? Call or WhatsApp us and we'll arrange a site visit or send the brochure.</p>
 
-      <h4 style="margin-bottom:6px;">Why Vedanta?</h4>
-      <ul style="margin:0; padding-left:18px; color:#6b7280;">
-        <li>✅ Clear title & approvals</li>
-        <li>✅ Planned roads & drainage</li>
-        <li>✅ Flexible payment plans</li>
-      </ul>
-    </aside>
-  </div>
-</main>
+        <p style="margin-top:12px;"><strong style="display:block; color:#071241;">📞 +91 79950 19237</strong>
+           <a href="tel:+917995019237" style="display:inline-block; margin-top:8px; text-decoration:none;" class="btn-outline">Call</a>
+        </p>
+
+        <p style="margin:6px 0;"><strong style="display:block; color:#071241;">📍 Nunna, Vijayawada</strong>
+           <a href="https://maps.app.goo.gl/QXfM5JTtoQJeTwEo7" target="_blank" rel="noopener" class="btn-outline" style="margin-top:6px;">Open in Maps</a>
+        </p>
+
+        <div class="aside-actions">
+          <a href="assets/eBrochure.pdf" target="_blank" class="btn-outline">📄 Download Brochure</a>
+
+          <!-- WhatsApp message with brief prefilled interest message -->
+          <a href="https://wa.me/917995019237?text=Hello%2C%20I%27m%20interested%20in%20Vedanta%20plots.%20Please%20contact%20me%20to%20discuss%20availability." 
+             target="_blank" rel="noopener" class="btn-primary">💬 Chat on WhatsApp</a>
+        </div>
+
+        <hr style="margin:18px 0; border:none; border-top:1px solid #f0f0f0;">
+
+        <h4 style="margin-bottom:6px;">Why Vedanta?</h4>
+        <ul style="margin:0; padding-left:18px; color:#6b7280;">
+          <li>Clear title & approvals</li>
+          <li>Planned roads & drainage</li>
+          <li>Flexible payment plans</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
 
   <footer style="margin-top:40px;">
     <div style="background:#111; color:#fff; padding:18px 0; text-align:center;">
@@ -137,13 +199,20 @@
   </footer>
 
   <script>
-    // mobile nav toggle
+    // mobile nav toggle and gallery placeholder behaviour
     (function(){
       const toggle = document.getElementById('mobileToggle');
       const nav = document.querySelector('.nav');
       if (toggle && nav) {
         toggle.addEventListener('click', () => nav.classList.toggle('open'));
       }
+
+      // Optional: clicking gallery thumbnails opens the image in a new tab (quick fallback)
+      document.querySelectorAll('.project-gallery img').forEach(img => {
+        img.addEventListener('click', () => {
+          window.open(img.src, '_blank');
+        });
+      });
     })();
   </script>
 </body>
