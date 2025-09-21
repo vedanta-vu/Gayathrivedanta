@@ -409,3 +409,44 @@ footer {
     gap: 14px;
   }
 }
+
+/* Floating 'View Ongoing Projects' button */
+.floating-ongoing {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1200;
+  display: inline-block;
+  background: transparent;
+  color: #071241;
+  border: 2px solid #FFD700;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(7,18,65,0.12);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+}
+
+.floating-ongoing:hover,
+.floating-ongoing:focus {
+  transform: translateY(-50%) translateY(-6px);
+  box-shadow: 0 14px 30px rgba(7,18,65,0.16);
+  background: #071241;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .floating-ongoing {
+    right: 12px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 520px) {
+  .floating-ongoing {
+    display: none;
+  }
+}
