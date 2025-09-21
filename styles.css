@@ -71,7 +71,7 @@ body {
   color: inherit;
 }
 .logo img {
-  height: 100px;  /* increase logo size */
+  height: 80px;  /* slightly reduced to better fit header */
   width: auto;    /* keep proportions */
   display: block; /* removes extra spacing under image */
 }
@@ -165,7 +165,7 @@ body {
   box-shadow: 0 10px 30px rgba(7,18,65,0.10);
 }
 
-/* Outline — gold outline used for secondary actions (WhatsApp) */
+/* Outline — gold outline used for secondary actions (WhatsApp / Brochure) */
 .btn-outline {
   background: transparent;
   color: #FFD700;
@@ -197,11 +197,11 @@ body {
 /* ---------- Hero ---------- */
 .hero {
   background: url("assets/hero-bg.jpg") no-repeat center center/cover; /* 1st image */
-  min-height: 60vh;
+  min-height: 45vh;              /* reduced to bring highlights up */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 40px 20px;            /* reduced vertical padding */
   color: white;
   text-align: center;
   position: relative;
@@ -209,7 +209,7 @@ body {
 
 .hero-content {
   background: url("assets/hero-box.jpg") no-repeat center center/cover; /* 2nd image */
-  padding: 36px;
+  padding: 28px;
   border-radius: 10px;
   max-width: 720px;
   width: 90%;
@@ -235,7 +235,7 @@ body {
 
 /* hero buttons wrapper */
 .hero-buttons {
-  margin-top: 22px;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
   gap: 16px;
@@ -408,6 +408,34 @@ footer {
     flex-direction: column;
     gap: 14px;
   }
+}
+
+/* ---------- Project card background + overlay (used on Ongoing page) ---------- */
+.project-card-bg {
+  min-height: 240px;
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  margin-top: 20px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+.project-card-bg .overlay {
+  background: rgba(0,0,0,0.5);
+  padding: 22px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Sticky aside card for quick info */
+.aside-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(10,15,25,0.08);
+  position: sticky;
+  top: 100px;
 }
 
 /* Floating 'View Ongoing Projects' button */
