@@ -6,7 +6,7 @@
   <title>Ongoing Projects — Gayathri Developers</title>
   <link rel="stylesheet" href="styles.css?v=2" />
   <style>
-    /* small page-local tweaks to ensure header/menu appearance */
+    /* small page-local tweaks */
     .topbar { background:#071241; color:#fff; font-size:14px; }
     .topbar-inner { width:90%; max-width:1100px; margin:auto; display:flex; justify-content:flex-end; align-items:center; padding:8px 0; }
     .topbar a { color:#fff; text-decoration:none; margin-left:12px; font-weight:600; }
@@ -26,10 +26,15 @@
     .dropdown-menu a:hover { background:#f4f4f4; color:#071241; }
 
     .projects-wrapper { padding:48px 20px; max-width:1200px; margin:0 auto; }
-    .project-card-bg, .upcoming-card { min-height:220px; border-radius:12px; display:flex; align-items:flex-end; overflow:hidden; margin-top:20px; color:#fff; }
-    .project-card-bg .overlay, .upcoming-card .overlay { background:rgba(0,0,0,0.45); padding:18px; width:100%; border-radius:12px; }
-    .aside-card { background:#fff; padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(10,15,25,0.06); }
-    @media(max-width:980px){ .projects-grid { grid-template-columns: 1fr; } .container { padding:12px; } }
+    .project-card-bg { min-height:240px; border-radius:12px; display:flex; align-items:flex-end; overflow:hidden; margin-top:20px; color:#fff; box-shadow:0 6px 20px rgba(0,0,0,0.25); }
+    .project-card-bg .overlay { background:rgba(0,0,0,0.5); padding:22px; width:100%; border-radius:12px; }
+
+    .aside-card { background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 18px rgba(10,15,25,0.08); position:sticky; top:100px; }
+
+    @media(max-width:980px){
+      .projects-grid { grid-template-columns: 1fr; }
+      .aside-card { position:static; }
+    }
   </style>
 </head>
 <body>
@@ -81,14 +86,14 @@
           <h1 style="margin-top:0; font-size:36px; color:#071241;">Ongoing Projects</h1>
           <p style="color:#6b7280; max-width:700px;">Explore our ongoing residential layouts, available for booking and immediate registration.</p>
 
-          <!-- Vedanta Nunna Card (background) -->
+          <!-- Vedanta Nunna Card -->
           <article class="project-card-bg" style="background: url('assets/vedanta-card-bg.png') no-repeat center center/cover;">
             <div class="overlay">
               <h3 style="margin:0 0 8px 0;">Vedanta, Nunna</h3>
-              <p style="margin:0 0 12px 0;">APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
+              <p style="margin:0 0 14px 0;">APCRDA &amp; RERA approved premium plots near Vijayawada. Clear titles and spot registration available.</p>
               <div>
                 <a href="assets/eBrochure.pdf" class="btn-outline" target="_blank" style="margin-right:10px;">📄 Brochure</a>
-                <a href="contact.html" class="btn-primary" style="padding:8px 12px;">Book Site Visit</a>
+                <a href="https://wa.me/917995019237?text=Hello%2C%20I%20am%20interested%20in%20booking%20a%20site%20visit%20for%20Vedanta%2C%20Nunna%20plots" class="btn-primary">Book Site Visit</a>
               </div>
             </div>
           </article>
@@ -125,7 +130,7 @@
   </footer>
 
   <script>
-    // mobile nav toggle and basic behavior
+    // mobile nav toggle
     (function(){
       const toggle = document.getElementById('mobileToggle');
       const nav = document.querySelector('.nav');
